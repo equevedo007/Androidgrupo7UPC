@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_Paciente"
+        android:title="@string/mantenimiento"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/paciente"/>
+
+    <item
+        android:id="@+id/menu_Registro_Historia_Antecedentes"
+        android:title="@string/registro_historia_antecedentes"
+        app:showAsAction="always"
+        android:icon="@drawable/registrohistoriaantecedentes"
+      />
+
+    <item
+        android:id="@+id/menu_Visualizar_Usuarios"
+        android:title="@string/visualizar_usuarios"
+        app:showAsAction="always"
+        android:icon="@drawable/visualizarusuarios"/>
+
+</menu>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Android grupo 7 UPC</string>
+    <string name="mantenimiento">Mantenimiento</string>
+    <string name="registro_historia_antecedentes">Registro_historia_antecedentes</string>
+    <string name="visualizar_usuarios">Visualizar_Usuarios</string>
 </resources>
