@@ -3,4 +3,8 @@
     <string name="mantenimiento">Mantenimiento</string>
     <string name="registro_historia_antecedentes">Registro_historia_antecedentes</string>
     <string name="visualizar_usuarios">Visualizar_Usuarios</string>
+    <string name="cambiar_password">Cambiar Contraseña</string>
+    <string name="ingresar_password">Ingrese Contraseña</string>
+    <string name="confirmar_password">Confirmar Contraseña</string>
+
 </resources>
