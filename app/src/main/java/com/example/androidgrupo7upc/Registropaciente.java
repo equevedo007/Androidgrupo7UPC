@@ -91,20 +91,27 @@ public class Registropaciente extends AppCompatActivity {
         spinnertxtGradoInstruccion.setAdapter(adaptertxtGradoInstruccion);
 
 
-
-
-
-
-
-
-
-
-
         Spinner spinnerListaDepartamento = (Spinner) findViewById(R.id.ListaDepartamento);
         ArrayAdapter<CharSequence> adapterListaDepartamento = ArrayAdapter.createFromResource(this,
                 R.array.ListaDepartamentos, android.R.layout.simple_spinner_item);
         adapterListaDepartamento.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
         spinnerListaDepartamento.setAdapter(adapterListaDepartamento);
+
+
+        Spinner spinnerListaProvincia = (Spinner) findViewById(R.id.ListaProvincia);
+        ArrayAdapter<CharSequence> adapterListaProvincia = ArrayAdapter.createFromResource(this,
+                R.array.ListaProvincias, android.R.layout.simple_spinner_item);
+        adapterListaProvincia.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
+        spinnerListaProvincia.setAdapter(adapterListaProvincia);
+
+
+        Spinner spinnerListaDistrito = (Spinner) findViewById(R.id.ListaDistrito);
+        ArrayAdapter<CharSequence> adapterListaDistrito = ArrayAdapter.createFromResource(this,
+                R.array.ListaDistrito, android.R.layout.simple_spinner_item);
+        adapterListaProvincia.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
+        spinnerListaDistrito.setAdapter(adapterListaDistrito);
+
+
     }
 
 
