@@ -88,23 +88,64 @@
     </string-array>
 
     <string-array name="ListaProvincias">
-        <item>Primaria</item>
-        <item>Secundaria</item>
-        <item>Técnico Incompleto</item>
-        <item>Técnico completo</item>
-        <item>Universitario Parcial</item>
-        <item>Universitario Completo</item>
-        <item>Otros</item>
+        <item>--Seleccionar Provincias--</item>
+        <item>Barranca</item>
+        <item>Cajatambo</item>
+        <item>Cañete</item>
+        <item>Canta</item>
+        <item>Huaral</item>
+        <item>Huarochirí</item>
+        <item>Huaura</item>
+        <item>Lima</item>
+        <item>Oyón</item>
+        <item>Yauyos</item>
     </string-array>
 
     <string-array name="ListaDistrito">
-        <item>Primaria</item>
-        <item>Secundaria</item>
-        <item>Técnico Incompleto</item>
-        <item>Técnico completo</item>
-        <item>Universitario Parcial</item>
-        <item>Universitario Completo</item>
-        <item>Otros</item>
+        <item>--Seleccionar Distrito--</item>
+        <item>Ancón</item>
+        <item>Ate</item>
+        <item>Barranco</item>
+        <item>Breña</item>
+        <item>Carabayllo</item>
+        <item>Chaclacayo</item>
+        <item>Chorrillos</item>
+        <item>Cieneguilla</item>
+        <item>Comas</item>
+        <item>El Agustino</item>
+        <item>Independencia</item>
+        <item>Jesús María</item>
+        <item>La Molina</item>
+        <item>La Victoria</item>
+        <item>Lima</item>
+        <item>Lince</item>
+        <item>Los Olivos</item>
+        <item>Lurigancho</item>
+        <item>Lurin</item>
+        <item>Magdalena del Mar</item>
+        <item>Miraflores</item>
+        <item>Pachacamac</item>
+        <item>Pucusana</item>
+        <item>Pueblo Libre</item>
+        <item>Puente Piedra</item>
+        <item>Punta Hermosa</item>
+        <item>Punta Negra</item>
+        <item>Rímac</item>
+        <item>San Bartolo</item>
+        <item>San Borja</item>
+        <item>San Isidro</item>
+        <item>San Juan de Lurigancho</item>
+        <item>San Juan de Miraflores</item>
+        <item>San Luis</item>
+        <item>San Martín de Porres</item>
+        <item>San Miguel</item>
+        <item>Santa Anita</item>
+        <item>Santa María del Mar</item>
+        <item>Santa Rosa</item>
+        <item>Santiago de Surco</item>
+        <item>Surquillo</item>
+        <item>Villa El Salvador</item>
+        <item>Villa María del Triunfo</item>
     </string-array>
 
 </resources>
