@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Registropaciente">
+
+  <TextView
+      android:id="@+id/textView6"
+      android:layout_width="match_parent"
+      android:layout_height="61dp"
+      android:gravity="center"
+      android:text="@string/registro_de_paciente"
+      android:textColor="@color/black"
+      android:textSize="24sp"
+      android:textStyle="italic|bold" />
+
+  <Spinner
+      android:id="@+id/txttipodocumento"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/registro_de_paciente"
+      android:minHeight="48dp"
+      android:spinnerMode="dropdown"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:ignore="DuplicateSpeakableTextCheck" />
+
+  <EditText
+      android:id="@+id/txtNumeroDocumento"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:hint="@string/nro_documento"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textColorHint="#757575"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.482"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      android:autofillHints="" />
+
+  <EditText
+      android:id="@+id/txtNombres"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:hint="@string/nombres"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textColorHint="#757575"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.482"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      android:autofillHints="" />
+
+  <EditText
+      android:id="@+id/txtApellidoPaterno"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:hint="@string/apellido_paterno"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textColorHint="#757575"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.482"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      android:autofillHints="" />
+
+  <EditText
+      android:id="@+id/txtApellidoMaterno"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:hint="@string/apellido_materno"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textColorHint="#757575"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.482"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      android:autofillHints="" />
+
+  <EditText
+      android:id="@+id/txtFechaNacimiento"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_margin="0dp"
+      android:clickable="false"
+      android:cursorVisible="false"
+      android:focusable="false"
+      android:focusableInTouchMode="false"
+      android:hint="Fecha de Nacimiento"
+      android:minHeight="48dp" />
+
+  <Spinner
+      android:id="@+id/txtSexo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/registro_de_paciente"
+      android:minHeight="48dp"
+      android:spinnerMode="dropdown"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:ignore="DuplicateSpeakableTextCheck" />
+
+  <Spinner
+      android:id="@+id/txtEstadoCivil"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/registro_de_paciente"
+      android:minHeight="48dp"
+      android:spinnerMode="dropdown"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:ignore="DuplicateSpeakableTextCheck" />
+
+  <Spinner
+      android:id="@+id/txtGradoInstruccion"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/registro_de_paciente"
+      android:minHeight="48dp"
+      android:spinnerMode="dropdown"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:ignore="DuplicateSpeakableTextCheck" />
+
+  <Spinner
+      android:id="@+id/ListaDepartamento"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/registro_de_paciente"
+      android:minHeight="48dp"
+      android:spinnerMode="dropdown"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+
+
+
+
+
+</LinearLayout>

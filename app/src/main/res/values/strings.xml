@@ -6,5 +6,95 @@
     <string name="cambiar_password">Cambiar Contraseña</string>
     <string name="ingresar_password">Ingrese Contraseña</string>
     <string name="confirmar_password">Confirmar Contraseña</string>
+    <string name="registro_de_paciente">Registro de Paciente</string>
+    <string name="nro_documento">Nro. Documento</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellido_paterno">Apellido Paterno</string>
+    <string name="apellido_materno">Apellido Materno</string>
+
+    <string-array name="tipodocumento">
+        <item>DNI</item>
+        <item>Carnet de Extranjeria</item>
+        <item>Java</item>
+        <item>RUC</item>
+        <item>Pasaporte</item>
+        <item>Partida de Nacimiento</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="SeleccionarSexo">
+        <item>--Seleccionar Sexo--</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+
+    <string-array name="SeleccionarEstadoCivil">
+        <item>--Seleccionar Estado Civil--</item>
+        <item>Soltero</item>
+        <item>Casado</item>
+        <item>Conviviente</item>
+        <item>Divorciado/Casado</item>
+        <item>Viudo</item>
+    </string-array>
+
+    <string-array name="SeleccionarGradoInstrucción">
+        <item>--Seleccionar Grado Instrucción--</item>
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Técnico Incompleto</item>
+        <item>Técnico completo</item>
+        <item>Universitario Parcial</item>
+        <item>Universitario Completo</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="ListaDepartamentos">
+        <item>--Seleccionar Departamento--</item>
+        <item>Amazonas</item>
+        <item>Áncash</item>
+        <item>Apurimac</item>
+        <item>Arequipa</item>
+        <item>Ayacucho</item>
+        <item>Cajamarca</item>
+        <item>Callao</item>
+        <item>Cusco</item>
+        <item>Huancavelica</item>
+        <item>Huánuco</item>
+        <item>Ica</item>
+        <item>Junín</item>
+        <item>La Libertad</item>
+        <item>Lambayaque</item>
+        <item>Lima</item>
+        <item>Loreto</item>
+        <item>Madre de Dios</item>
+        <item>Moquegua</item>
+        <item>Pasco</item>
+        <item>Piura</item>
+        <item>Puno</item>
+        <item>San Martin</item>
+        <item>Tacna</item>
+        <item>Tumbes</item>
+        <item>Ucayali</item>
+    </string-array>
+
+    <string-array name="ListaProvincias">
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Técnico Incompleto</item>
+        <item>Técnico completo</item>
+        <item>Universitario Parcial</item>
+        <item>Universitario Completo</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="ListaDistrito">
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Técnico Incompleto</item>
+        <item>Técnico completo</item>
+        <item>Universitario Parcial</item>
+        <item>Universitario Completo</item>
+        <item>Otros</item>
+    </string-array>
 
 </resources>

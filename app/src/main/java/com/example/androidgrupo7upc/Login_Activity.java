@@ -15,7 +15,9 @@ public class Login_Activity extends AppCompatActivity {
     }
 
     public void procesar (View v){
-        startActivity(new Intent(this, menu_Activity.class));
+       // startActivity(new Intent(this, menu_Activity.class));
+
+        startActivity(new Intent(this, Registropaciente.class));
     }
 
 
