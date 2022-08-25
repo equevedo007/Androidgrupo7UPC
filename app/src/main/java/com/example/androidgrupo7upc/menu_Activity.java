@@ -36,12 +36,14 @@ public class menu_Activity extends AppCompatActivity {
                 return true;
             case R.id.menu_Registro_Historia_Antecedentes:
                 Log.i("====>","Click en Registro Historia Antecedentes!!");
+                startActivity(new Intent(this, RegistroAntecedentes_Activity.class));
 
                 return true;
             case R.id.menu_Visualizar_Usuarios:
                 Log.i("====>","Click en Visualizar Usuarios!!");
                 startActivity(new Intent(this, VisualizarUsuarios_Activity.class));
                 return true;
+
             case R.id.menu_salir:
                 Log.i("====>","Click en Salir!!");
                 startActivity(new Intent(this,Login_Activity.class));
