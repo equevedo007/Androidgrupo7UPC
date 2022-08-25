@@ -16,7 +16,6 @@
     <string-array name="tipodocumento">
         <item>DNI</item>
         <item>Carnet de Extranjeria</item>
-        <item>Java</item>
         <item>RUC</item>
         <item>Pasaporte</item>
         <item>Partida de Nacimiento</item>
