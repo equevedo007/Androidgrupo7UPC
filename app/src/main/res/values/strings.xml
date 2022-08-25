@@ -13,6 +13,16 @@
     <string name="apellido_materno">Apellido Materno</string>
     <string name="Ocupacion" />
     <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="nombres_completos">Nombres Completos</string>
+    <string name="buscar">Buscar</string>
+    <string name="numero_documento">Número Documento</string>
+    <string name="fecha">Ingrese fecha</string>
+    <string name="num_ficha">Número ficha</string>
+    <string name="direccion">Dirección</string>
+    <string name="edad">Edad</string>
+    <string name="motivo_consulta">Motivo de la consulta</string>
+    <string name="siguiente">Siguiente</string>
+
 
     <string-array name="tipodocumento">
         <item>DNI</item>
