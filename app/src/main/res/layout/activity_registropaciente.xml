@@ -232,12 +232,44 @@
           app:layout_constraintStart_toStartOf="parent"
           tools:ignore="DuplicateSpeakableTextCheck" />
 
+      <Spinner
+          android:id="@+id/ListaProvincia"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/registro_de_paciente"
+          android:minHeight="48dp"
+          android:spinnerMode="dropdown"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:ignore="DuplicateSpeakableTextCheck" />
+
+      <Spinner
+          android:id="@+id/ListaDistrito"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/registro_de_paciente"
+          android:minHeight="48dp"
+          android:spinnerMode="dropdown"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:ignore="DuplicateSpeakableTextCheck" />
+
+      <Button
+          android:id="@+id/button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="36dp"
+          android:text="Registrar"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.498"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+
     </LinearLayout>
+
+
   </ScrollView>
-
-
-
-
-
 
 </LinearLayout>
