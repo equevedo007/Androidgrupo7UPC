@@ -5,21 +5,26 @@
 
     <item
         android:id="@+id/menu_Paciente"
-        android:title="@string/mantenimiento"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/paciente"/>
+        android:title="Paciente"
+        app:showAsAction="always"
+        android:icon="@drawable/paciente001"/>
+
 
     <item
         android:id="@+id/menu_Registro_Historia_Antecedentes"
-        android:title="@string/registro_historia_antecedentes"
+        android:title="Historia Antecedentes"
         app:showAsAction="always"
-        android:icon="@drawable/registrohistoriaantecedentes"
-      />
+        android:icon="@drawable/registrohistoriaantecedentes001"/>
 
     <item
         android:id="@+id/menu_Visualizar_Usuarios"
-        android:title="@string/visualizar_usuarios"
+        android:title="visualizar Usuarios"
         app:showAsAction="always"
-        android:icon="@drawable/visualizarusuarios"/>
+        android:icon="@drawable/visualizarusuarios001"/>
+
+    <item
+        android:id="@+id/menu_salir"
+        android:title="Salir"
+        app:showAsAction="never" />
 
 </menu>
