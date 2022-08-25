@@ -97,14 +97,16 @@
       android:id="@+id/txtFechaNacimiento"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_centerInParent="true"
       android:layout_margin="0dp"
       android:clickable="false"
       android:cursorVisible="false"
       android:focusable="false"
       android:focusableInTouchMode="false"
       android:hint="Fecha de Nacimiento"
-      android:minHeight="48dp" />
+      android:minHeight="48dp"
+      android:textColorHint="#757575"
+      android:autofillHints=""
+      android:inputType="" />
 
   <Spinner
       android:id="@+id/txtSexo"
@@ -141,6 +143,8 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       tools:ignore="DuplicateSpeakableTextCheck" />
+
+
 
   <Spinner
       android:id="@+id/ListaDepartamento"

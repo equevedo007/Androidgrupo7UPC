@@ -11,6 +11,7 @@
     <string name="nombres">Nombres</string>
     <string name="apellido_paterno">Apellido Paterno</string>
     <string name="apellido_materno">Apellido Materno</string>
+    <string name="Ocupacion" />
 
     <string-array name="tipodocumento">
         <item>DNI</item>
