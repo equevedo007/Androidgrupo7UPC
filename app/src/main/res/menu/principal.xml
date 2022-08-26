@@ -21,7 +21,18 @@
         android:title="visualizar Usuarios"
         app:showAsAction="always"
         android:icon="@drawable/visualizarusuarios001"/>
-
+    <item
+        android:id="@+id/menu_hc"
+        android:title="Historia clinica"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_reguser"
+        android:title="Registrar usuario"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_changepassword"
+        android:title="Cambiar contraseña"
+        app:showAsAction="never" />
     <item
         android:id="@+id/menu_salir"
         android:title="Salir"

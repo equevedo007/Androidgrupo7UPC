@@ -22,6 +22,8 @@
     <string name="edad">Edad</string>
     <string name="motivo_consulta">Motivo de la consulta</string>
     <string name="siguiente">Siguiente</string>
+    <string name="valor_cero">0.00</string>
+    <string name="finalizar">Finalizar</string>
 
 
     <string-array name="tipodocumento">

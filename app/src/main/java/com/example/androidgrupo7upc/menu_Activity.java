@@ -46,6 +46,18 @@ public class menu_Activity extends AppCompatActivity {
                 Log.i("====>","Click en Salir!!");
                 startActivity(new Intent(this,Login_Activity.class));
                 return true;
+            case R.id.menu_hc:
+                Log.i("====>","Click en Historia clinica");
+                startActivity(new Intent(this,hc_general.class));
+                return true;
+            case R.id.menu_reguser:
+                Log.i("====>","Click en Historia clinica");
+                startActivity(new Intent(this,create_user.class));
+                return true;
+            case R.id.menu_changepassword:
+                Log.i("====>","Click en Historia clinica");
+                startActivity(new Intent(this,change_password.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

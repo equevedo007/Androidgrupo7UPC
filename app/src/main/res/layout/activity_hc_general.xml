@@ -7,11 +7,18 @@
     tools:context=".hc_general">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="373dp"
         android:layout_height="643dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="72dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <Spinner
             android:id="@+id/spinner3"
@@ -100,6 +107,7 @@
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="psiguiente"
             android:text="@string/siguiente" />
 
     </LinearLayout>
@@ -108,7 +116,13 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="21dp"
         android:text="HISTORIA CLINICA GENERALES"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
