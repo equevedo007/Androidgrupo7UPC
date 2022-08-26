@@ -49,7 +49,7 @@ public class menu_Activity extends AppCompatActivity {
                 startActivity(new Intent(this,Login_Activity.class));
                 return true;
             case R.id.menu_hc:
-                Log.i("====>","Click en Historia clinica");
+                Log.i("====>","Click en Historia Clinica");
                 startActivity(new Intent(this,hc_general.class));
                 return true;
             case R.id.menu_reguser:
