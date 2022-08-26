@@ -17,6 +17,9 @@
             android:name=".hc_examen_visual"
             android:exported="false" />
         <activity
+            android:name=".RegistroAntecedentes_Activity"
+            android:exported="false" />
+        <activity
             android:name=".VisualizarUsuarios_Activity"
             android:exported="false" />
         <activity
