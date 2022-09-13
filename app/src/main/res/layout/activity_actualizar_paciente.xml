@@ -25,7 +25,9 @@
         <Spinner
             android:id="@+id/spinner5"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="48dp"
+            android:contentDescription="@string/Ocupacion"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -38,8 +40,10 @@
                 android:id="@+id/autoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="DNI"
-                android:inputType="none" />
+                android:hint="@string/dni"
+                android:inputType="none"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -50,7 +54,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/nro_documento"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextTextPersonName7"
@@ -58,15 +65,20 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/nombres"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextTextPersonName11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/apellido_materno"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editTextTextPersonName10"
@@ -74,7 +86,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/apellido_paterno"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -82,30 +97,24 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/fecha_de_nacimiento"
-            android:inputType="date" />
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/Guardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GUARDAR" />
+            android:text="@string/guardar" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CERRAR" />
+            android:text="@string/cerrar" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="234dp"
-        android:layout_height="47dp"
-        android:text="Actualizar Paciente"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="32dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

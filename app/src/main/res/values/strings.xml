@@ -22,6 +22,10 @@
     <string name="edad">Edad</string>
     <string name="motivo_consulta">Motivo de la consulta</string>
     <string name="siguiente">Siguiente</string>
+    <string name="dni">DNI</string>
+    <string name="cerrar">CERRAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="refraccion">REFRACCION</string>
 
 
     <string-array name="tipodocumento">

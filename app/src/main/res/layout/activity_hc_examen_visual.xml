@@ -17,8 +17,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,8 +34,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -44,8 +47,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -56,8 +60,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -73,8 +78,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -85,8 +91,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -97,8 +104,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -165,8 +173,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -177,8 +186,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -188,8 +198,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -205,8 +216,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -217,8 +229,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
 
             <EditText
@@ -229,8 +242,9 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/valor_cero"
+                android:hint="0"
                 android:inputType="numberDecimal"
+                android:minHeight="48dp"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -238,7 +252,7 @@
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/finalizar" />
+            android:text="finalizar" />
 
     </LinearLayout>
 
@@ -250,7 +264,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="145dp"
         android:layout_marginBottom="59dp"
-        android:text="REFRACCION"
+        android:text="@string/refraccion"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
