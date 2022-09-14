@@ -42,7 +42,6 @@ public class Login_Activity extends AppCompatActivity {
 
     public void login (View v) {
 
-
         /*final EditText txtUsuario = findViewById(R.id.editTextTextPersonName);
 
         final EditText txtPassword = findViewById(R.id.editTextTextPassword2);
@@ -78,6 +77,7 @@ public class Login_Activity extends AppCompatActivity {
         requestQueue.add(stringRequest);*/
 
         startActivity(new Intent(this, menu_Activity.class));
+
         }
     }
 
