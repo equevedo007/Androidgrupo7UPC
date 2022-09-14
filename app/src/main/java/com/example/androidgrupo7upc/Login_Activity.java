@@ -60,7 +60,7 @@ public class Login_Activity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.i("======>", error.toString());
+                        Log.i("=====>", error.toString());
                     }
                 }
         ){
@@ -76,7 +76,7 @@ public class Login_Activity extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);*/
 
-        startActivity(new Intent(this, menu_Activity.class));
+         startActivity(new Intent(this, menu_Activity.class));
 
         }
     }
