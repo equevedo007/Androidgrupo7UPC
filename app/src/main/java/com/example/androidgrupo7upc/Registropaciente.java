@@ -1,30 +1,97 @@
 package com.example.androidgrupo7upc;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.LENGTH_SHORT;
+import static com.example.androidgrupo7upc.util.Constants.S_CERO;
+import static com.example.androidgrupo7upc.util.Constants.TEXTO_VACIO;
+import static com.example.androidgrupo7upc.util.Constants.TOKEN;
+import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
+
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.androidgrupo7upc.model.DepartmentType;
+import com.example.androidgrupo7upc.model.DistrictType;
+import com.example.androidgrupo7upc.model.MasterType;
+import com.example.androidgrupo7upc.model.PatientRequest;
+import com.example.androidgrupo7upc.model.ProvinceType;
+import com.example.androidgrupo7upc.network.RESTManager;
+import com.example.androidgrupo7upc.network.impl.PacienteApi;
+import com.example.androidgrupo7upc.network.impl.UbigeoApi;
+import com.example.androidgrupo7upc.util.DataMapper;
+import com.example.androidgrupo7upc.util.Util;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Registropaciente extends AppCompatActivity {
 
-    private EditText dateEdt;
+    private EditText txtNumeroDocumento, txtNombres, txtApellidoPaterno, txtApellidoMaterno;
+    private EditText txtFechaNacimiento, txtOcupacion, txtCelular, txtTelefono, txtCorreo;
+    private EditText txtDireecion, txtReferencia;
 
-    private Spinner spnTipoDocumento;
+    private Spinner spnTipoDocumento, spnSexo, spnEstadoCivil, spnGrado;
+    private Spinner spnDepartamento, spnProvincia, spnDistrito;
+
+    private Button btnRegistrar;
+
+    private String tipoDocumento = "0";
+    private String sexo = "0";
+    private String estadoCivil = "0";
+    private String grado = "0";
+    private String idDepartamento = "0";
+    private String idProvincia = "0";
+    private String idDistrito = "0";
+    private String idUbigeo = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registropaciente);
 
-        dateEdt = findViewById(R.id.txtFechaNacimiento);
-        spnTipoDocumento = findViewById(R.id.txttipodocumento);
+        RESTManager.getInstance(this);
 
-        dateEdt.setOnClickListener(v -> {
+        spnTipoDocumento = findViewById(R.id.txttipodocumento);
+        obtenerTipoDocumento();
+        spnTipoDocumento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                MasterType masterType = (MasterType) parent.getSelectedItem();
+                tipoDocumento = masterType.getId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        txtNumeroDocumento = findViewById(R.id.txtNumeroDocumento);
+        txtNombres = findViewById(R.id.txtNombres);
+        txtApellidoPaterno = findViewById(R.id.txtApellidoPaterno);
+        txtApellidoMaterno = findViewById(R.id.txtApellidoMaterno);
+
+        txtFechaNacimiento = findViewById(R.id.txtFechaNacimiento);
+        txtFechaNacimiento.setOnClickListener(v -> {
             final Calendar c = Calendar.getInstance();
 
             int year = c.get(Calendar.YEAR);
@@ -34,62 +101,351 @@ public class Registropaciente extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     Registropaciente.this,
                     (view, year1, monthOfYear, dayOfMonth) -> {
-                        dateEdt.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year1);
+                        String nMonth = monthOfYear + 1 < 10 ? "0" + (monthOfYear + 1) : String.valueOf(monthOfYear + 1);
+                        txtFechaNacimiento.setText(dayOfMonth + "/" + nMonth + "/" + year1);
                     },
                     year, month, day);
             datePickerDialog.show();
         });
 
-        obtenerTipoDocumento();
+        spnSexo = findViewById(R.id.txtSexo);
+        obtenerSexo();
+        spnSexo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                MasterType masterType = (MasterType) parent.getSelectedItem();
+                sexo = masterType.getId();
+            }
 
-        Spinner spinnerSeleccionarSexo = findViewById(R.id.txtSexo);
-        ArrayAdapter<CharSequence> adapterSeleccionarSexo = ArrayAdapter.createFromResource(this,
-                R.array.SeleccionarSexo, android.R.layout.simple_spinner_item);
-        adapterSeleccionarSexo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSeleccionarSexo.setAdapter(adapterSeleccionarSexo);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
 
-        Spinner spinnertxtEstadoCivil = findViewById(R.id.txtEstadoCivil);
-        ArrayAdapter<CharSequence> adaptertxtEstadoCivil = ArrayAdapter.createFromResource(this,
-                R.array.SeleccionarEstadoCivil, android.R.layout.simple_spinner_item);
-        adaptertxtEstadoCivil.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnertxtEstadoCivil.setAdapter(adaptertxtEstadoCivil);
+        spnEstadoCivil = findViewById(R.id.txtEstadoCivil);
+        obtenerEstadoCivil();
+        spnEstadoCivil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                MasterType masterType = (MasterType) parent.getSelectedItem();
+                estadoCivil = masterType.getId();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-        Spinner spinnertxtGradoInstruccion = findViewById(R.id.txtGradoInstruccion);
-        ArrayAdapter<CharSequence> adaptertxtGradoInstruccion = ArrayAdapter.createFromResource(this,
-                R.array.SeleccionarGradoInstrucción, android.R.layout.simple_spinner_item);
-        adaptertxtGradoInstruccion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnertxtGradoInstruccion.setAdapter(adaptertxtGradoInstruccion);
+            }
+        });
 
+        spnGrado = findViewById(R.id.txtGradoInstruccion);
+        obtenerGrado();
+        spnGrado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                MasterType masterType = (MasterType) parent.getSelectedItem();
+                grado = masterType.getId();
+            }
 
-        Spinner spinnerListaDepartamento = findViewById(R.id.ListaDepartamento);
-        ArrayAdapter<CharSequence> adapterListaDepartamento = ArrayAdapter.createFromResource(this,
-                R.array.ListaDepartamentos, android.R.layout.simple_spinner_item);
-        adapterListaDepartamento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerListaDepartamento.setAdapter(adapterListaDepartamento);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
 
-        Spinner spinnerListaProvincia = findViewById(R.id.ListaProvincia);
-        ArrayAdapter<CharSequence> adapterListaProvincia = ArrayAdapter.createFromResource(this,
-                R.array.ListaProvincias, android.R.layout.simple_spinner_item);
-        adapterListaProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerListaProvincia.setAdapter(adapterListaProvincia);
+        txtOcupacion = findViewById(R.id.txtOcupacion);
+        txtCelular = findViewById(R.id.txtCelular);
+        txtTelefono = findViewById(R.id.txtTelefono);
+        txtCorreo = findViewById(R.id.txtCorreo);
 
+        spnDepartamento = findViewById(R.id.ListaDepartamento);
+        obtenerDepartamentos();
+        spnDepartamento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                DepartmentType departmentType = (DepartmentType) parent.getSelectedItem();
+                idDepartamento = departmentType.getIdDepartamento();
+                obtenerProvincias(departmentType.getIdDepartamento());
+            }
 
-        Spinner spinnerListaDistrito = findViewById(R.id.ListaDistrito);
-        ArrayAdapter<CharSequence> adapterListaDistrito = ArrayAdapter.createFromResource(this,
-                R.array.ListaDistrito, android.R.layout.simple_spinner_item);
-        adapterListaProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerListaDistrito.setAdapter(adapterListaDistrito);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spnProvincia = findViewById(R.id.ListaProvincia);
+        obtenerProvincias(null);
+        spnProvincia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ProvinceType provinceType = (ProvinceType) parent.getSelectedItem();
+                idProvincia = provinceType.getIdProvincia();
+                obtenerDistritos(provinceType.getIdProvincia());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spnDistrito = findViewById(R.id.ListaDistrito);
+        obtenerDistritos(null);
+        spnDistrito.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                DistrictType districtType = (DistrictType) parent.getSelectedItem();
+                idDistrito = districtType.getIdDistrito();
+                idUbigeo = districtType.getIdUbigeo();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        txtDireecion = findViewById(R.id.txtDireecion);
+        txtReferencia = findViewById(R.id.txtReferencia);
+
+        btnRegistrar = findViewById(R.id.btnRegistrar);
+        btnRegistrar.setOnClickListener(view -> registrarPaciente());
     }
 
-    private void obtenerTipoDocumento(){
-        ArrayAdapter<CharSequence> adapterTipoDocumento = ArrayAdapter.createFromResource(this,
-                R.array.tipodocumento, android.R.layout.simple_spinner_item);
+    private void obtenerTipoDocumento() {
+        ArrayAdapter<MasterType> adapterTipoDocumento = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Util.getMasterList(DataMapper.tipoDocumentoMap));
         adapterTipoDocumento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spnTipoDocumento.setAdapter(adapterTipoDocumento);
     }
 
+    private void obtenerSexo() {
+        ArrayAdapter<MasterType> adapterTipoDocumento = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Util.getMasterList(DataMapper.tipoGeneroMap));
+        adapterTipoDocumento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        spnSexo.setAdapter(adapterTipoDocumento);
+    }
+
+    private void obtenerEstadoCivil() {
+        ArrayAdapter<MasterType> adapterTipoDocumento = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Util.getMasterList(DataMapper.tipoEstadoCivilMap));
+        adapterTipoDocumento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spnEstadoCivil.setAdapter(adapterTipoDocumento);
+    }
+
+    private void obtenerGrado() {
+        ArrayAdapter<MasterType> adapterTipoDocumento = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Util.getMasterList(DataMapper.tipoGradoMap));
+        adapterTipoDocumento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spnGrado.setAdapter(adapterTipoDocumento);
+    }
+
+    private void obtenerDepartamentos() {
+        UbigeoApi.getDepartments(ubigeoResponse -> {
+            List<DepartmentType> departmentTypeList = new ArrayList<>();
+            if (!ubigeoResponse.getDepartmentTypeList().isEmpty()) {
+                departmentTypeList.add(new DepartmentType("0", "Selecciona un departamento"));
+                departmentTypeList.addAll(ubigeoResponse.getDepartmentTypeList());
+
+                ArrayAdapter<DepartmentType> adapterDepartamento = new ArrayAdapter<>(this,
+                        android.R.layout.simple_spinner_item, departmentTypeList);
+                adapterDepartamento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                spnDepartamento.setAdapter(adapterDepartamento);
+            } else {
+                Toast.makeText(Registropaciente.this, "No se cargaron los departamentos", LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void obtenerProvincias(String idDepartamento) {
+        List<ProvinceType> provinceTypeList = new ArrayList<>();
+        provinceTypeList.add(new ProvinceType("0", "Selecciona una provincia"));
+
+        if (StringUtils.isEmpty(idDepartamento)) {
+            ArrayAdapter<ProvinceType> adapterProvincia = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_item, provinceTypeList);
+            adapterProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spnProvincia.setAdapter(adapterProvincia);
+        } else {
+            UbigeoApi.getProvinces(ubigeoResponse -> {
+                if (!ubigeoResponse.getProvinceTypeList().isEmpty()) {
+                    provinceTypeList.addAll(ubigeoResponse.getProvinceTypeList());
+                    ArrayAdapter<ProvinceType> adapterProvincia = new ArrayAdapter<>(this,
+                            android.R.layout.simple_spinner_item, provinceTypeList);
+                    adapterProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    spnProvincia.setAdapter(adapterProvincia);
+                } else {
+                    Toast.makeText(Registropaciente.this, "No se cargaron las provincias", LENGTH_LONG).show();
+                }
+            }, idDepartamento);
+        }
+    }
+
+    private void obtenerDistritos(String idProvincia) {
+        List<DistrictType> districtTypeList = new ArrayList<>();
+        districtTypeList.add(new DistrictType("0", "0", "Selecciona un distrito"));
+
+        if (StringUtils.isEmpty(idProvincia)) {
+            ArrayAdapter<DistrictType> adapterDistrito = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_item, districtTypeList);
+            adapterDistrito.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spnDistrito.setAdapter(adapterDistrito);
+        } else {
+            UbigeoApi.getDistricts(ubigeoResponse -> {
+                if (!ubigeoResponse.getDistrictTypes().isEmpty()) {
+                    districtTypeList.addAll(ubigeoResponse.getDistrictTypes());
+                    ArrayAdapter<DistrictType> adapterDistrito = new ArrayAdapter<>(this,
+                            android.R.layout.simple_spinner_item, districtTypeList);
+                    adapterDistrito.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    spnDistrito.setAdapter(adapterDistrito);
+                } else {
+                    Toast.makeText(Registropaciente.this, "No se cargaron los distritos", LENGTH_LONG).show();
+                }
+            }, idProvincia);
+        }
+    }
+
+    private void registrarPaciente() {
+        boolean error = false;
+
+        String numeroDocumento = txtNumeroDocumento.getText().toString();
+        String nombres = txtNombres.getText().toString();
+        String apellidoPaterno = txtApellidoPaterno.getText().toString();
+        String apellidoMaterno = txtApellidoMaterno.getText().toString();
+        String fechaNacimiento = txtFechaNacimiento.getText().toString();
+        String ocupacion = txtOcupacion.getText().toString();
+        String celular = txtCelular.getText().toString();
+        String telefono = txtTelefono.getText().toString();
+        String correo = txtCorreo.getText().toString();
+        String direecion = txtDireecion.getText().toString();
+        String referencia = txtReferencia.getText().toString();
+
+        if (tipoDocumento.isEmpty()) {
+            setSpinnerError(spnTipoDocumento);
+            error = true;
+        }
+        if (numeroDocumento.isEmpty()) {
+            txtNumeroDocumento.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (nombres.isEmpty()) {
+            txtNombres.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (apellidoPaterno.isEmpty()) {
+            txtApellidoPaterno.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (apellidoMaterno.isEmpty()) {
+            txtApellidoMaterno.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (fechaNacimiento.isEmpty()) {
+            txtFechaNacimiento.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (sexo.isEmpty()) {
+            setSpinnerError(spnSexo);
+            error = true;
+        }
+        if (estadoCivil.isEmpty()) {
+            setSpinnerError(spnEstadoCivil);
+            error = true;
+        }
+        if (grado.isEmpty()) {
+            setSpinnerError(spnGrado);
+            error = true;
+        }
+        if (ocupacion.isEmpty()) {
+            txtOcupacion.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (celular.isEmpty()) {
+            txtCelular.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (telefono.isEmpty()) {
+            txtTelefono.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (correo.isEmpty()) {
+            txtCorreo.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (idDepartamento.isEmpty()) {
+            setSpinnerError(spnDepartamento);
+            error = true;
+        }
+        if (idProvincia.isEmpty()) {
+            setSpinnerError(spnProvincia);
+            error = true;
+        }
+        if (idDistrito.isEmpty()) {
+            setSpinnerError(spnDistrito);
+            error = true;
+        }
+        if (direecion.isEmpty()) {
+            txtDireecion.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (referencia.isEmpty()) {
+            txtReferencia.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+
+        if (error) {
+            Toast.makeText(getBaseContext(), "Favor de registrar los campos requeridos.", LENGTH_SHORT).show();
+        } else {
+            PatientRequest patientRequest = new PatientRequest();
+            patientRequest.setTipoDocumento(tipoDocumento);
+            patientRequest.setNumeroDocumento(numeroDocumento);
+            patientRequest.setNombres(nombres);
+            patientRequest.setApePaterno(apellidoPaterno);
+            patientRequest.setApeMaterno(apellidoMaterno);
+            patientRequest.setFechaNacimiento(fechaNacimiento);
+            patientRequest.setSexo(sexo);
+            patientRequest.setEstadoCivil(estadoCivil);
+            patientRequest.setGradoInstruccion(grado);
+            patientRequest.setOcupacion(ocupacion);
+            patientRequest.setCelular(celular);
+            patientRequest.setTelefono(telefono);
+            patientRequest.setEmail(correo);
+            patientRequest.setIdUbigeo(idUbigeo);
+            patientRequest.setDireccion(direecion);
+            patientRequest.setReferencia(referencia);
+
+            try {
+                String token = (String) getSharedPreference(String.class, Registropaciente.this, TOKEN);
+
+                Log.i("====>", "TOKEN : " + token);
+                Log.i("====>", "REQUEST : " + new ObjectMapper().writeValueAsString(patientRequest));
+
+                PacienteApi.addPatient(patientResponse -> {
+                    if (S_CERO.equals(patientResponse.getCodigoRespuesta())) {
+                        startActivity(new Intent(this, menu_Activity.class));
+                    } else {
+                        Toast.makeText(Registropaciente.this, patientResponse.getMensajeRespuesta(), LENGTH_LONG).show();
+                    }
+                }, token, patientRequest);
+            } catch (JsonProcessingException | JSONException e) {
+                Toast.makeText(Registropaciente.this, String.valueOf(e), LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private void setSpinnerError(Spinner spinnerError) {
+        TextView errorTextview = (TextView) spinnerError.getSelectedView();
+        errorTextview.setError(TEXTO_VACIO);
+        errorTextview.setTextColor(Color.RED);
+        errorTextview.setText(getString(R.string.campo_requerido));
+    }
 }

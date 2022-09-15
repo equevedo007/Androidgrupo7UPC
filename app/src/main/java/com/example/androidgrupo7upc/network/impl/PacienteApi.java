@@ -8,6 +8,7 @@ import static com.example.androidgrupo7upc.network.RESTManager.getRequestQueue;
 import static com.example.androidgrupo7upc.util.Constants.WS_OPEVISO_GENERAL_PATH;
 import static java.lang.String.valueOf;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.androidgrupo7upc.model.LoginResponse;
 import com.example.androidgrupo7upc.model.PatientRequest;
@@ -20,10 +21,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PacienteApi {
 
     public static void addPatient(final RESTManager.RESTListener<ResponseType> pacienteListener,
-                                  final PatientRequest pacienteRequest) throws JsonProcessingException, JSONException {
+                                  final String token, final PatientRequest pacienteRequest) throws JsonProcessingException, JSONException {
         String url = WS_OPEVISO_GENERAL_PATH + "/v1/paciente/new";
 
         ObjectMapper mapper = new ObjectMapper();
@@ -41,7 +45,14 @@ public class PacienteApi {
                 makeText(getContext(), valueOf(e), LENGTH_LONG).show();
             }
             pacienteListener.onResult(patientResponse);
-        }, error -> makeText(getContext(), valueOf(error), LENGTH_LONG).show());
+        }, error -> makeText(getContext(), valueOf(error), LENGTH_LONG).show()) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
 
         getRequestQueue().add(jsonResponse);
     }

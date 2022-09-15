@@ -1,5 +1,7 @@
 package com.example.androidgrupo7upc.model;
 
+import androidx.annotation.NonNull;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,6 +19,14 @@ public class DepartmentType {
         return idDepartamento;
     }
 
+    public DepartmentType() {
+    }
+
+    public DepartmentType(String idDepartamento, String descDepartamento) {
+        this.idDepartamento = idDepartamento;
+        this.descDepartamento = descDepartamento;
+    }
+
     public void setIdDepartamento(String idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
@@ -27,5 +37,11 @@ public class DepartmentType {
 
     public void setDescDepartamento(String descDepartamento) {
         this.descDepartamento = descDepartamento;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return descDepartamento;
     }
 }

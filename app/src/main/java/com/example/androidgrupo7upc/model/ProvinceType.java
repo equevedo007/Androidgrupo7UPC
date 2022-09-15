@@ -1,5 +1,7 @@
 package com.example.androidgrupo7upc.model;
 
+import androidx.annotation.NonNull;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,6 +14,14 @@ public class ProvinceType {
 
     @JsonProperty("descProvincia")
     private String descProvincia;
+
+    public ProvinceType() {
+    }
+
+    public ProvinceType(String idProvincia, String descProvincia) {
+        this.idProvincia = idProvincia;
+        this.descProvincia = descProvincia;
+    }
 
     public String getIdProvincia() {
         return idProvincia;
@@ -27,5 +37,11 @@ public class ProvinceType {
 
     public void setDescProvincia(String descProvincia) {
         this.descProvincia = descProvincia;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return descProvincia;
     }
 }

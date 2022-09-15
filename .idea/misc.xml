@@ -28,7 +28,9 @@
         <entry key="app/src/main/res/layout/activity_habilitar_deshabilitar_usuario.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_hc_examen_visual.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5635416666666667" />
-        <entry key="app/src/main/res/layout/activity_registropaciente.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_registropaciente.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/principal.xml" value="0.5635416666666667" />
       </map>
     </option>
   </component>

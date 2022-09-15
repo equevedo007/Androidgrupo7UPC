@@ -10,6 +10,7 @@ public class DataMapper {
 
     static {
         Map<String, String> map = new HashMap<>();
+        map.put("0", "Selecciona un tipo de documento");
         map.put("1", "DNI");
         map.put("2", "Carnet");
         map.put("3", "RUC");
@@ -24,6 +25,7 @@ public class DataMapper {
 
     static {
         Map<String, String> map = new HashMap<>();
+        map.put("0", "Selecciona un estado civil");
         map.put("1", "Soltero");
         map.put("2", "Casado");
         map.put("3", "Conviviente");
@@ -37,6 +39,7 @@ public class DataMapper {
 
     static {
         Map<String, String> map = new HashMap<>();
+        map.put("0", "Selecciona un género");
         map.put("1", "Masculino");
         map.put("2", "Femenino");
 
@@ -47,6 +50,7 @@ public class DataMapper {
 
     static {
         Map<String, String> map = new HashMap<>();
+        map.put("0", "Selecciona un grado de instrucción");
         map.put("1", "Primaria");
         map.put("2", "Secundaria");
         map.put("3", "Técnico Incompleto");

@@ -1,5 +1,7 @@
 package com.example.androidgrupo7upc.model;
 
+import androidx.annotation.NonNull;
+
 public class MasterType extends ResponseType {
 
     private String id;
@@ -24,5 +26,11 @@ public class MasterType extends ResponseType {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return value;
     }
 }

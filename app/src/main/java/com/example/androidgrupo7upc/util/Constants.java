@@ -10,7 +10,7 @@ public class Constants {
 
     public static final String S_CERO = "0";
 
-
+    public static final String TEXTO_VACIO = "";
 
     public static final String DATETIME_KEY = "QVES2IKAU7BA";
     public static final String WS_DATETIME = "http://api.timezonedb.com/v2.1/get-time-zone?key=" + DATETIME_KEY + "&format=json&by=zone&zone=America/Lima";
@@ -53,6 +53,8 @@ public class Constants {
     public static final int BASE_MINUTO = 60;
 
     public static final String ID_USUARIO = "idUsuario";
+    public static final String NOMBRE = "nombres";
+    public static final String TOKEN = "token";
     public static final String ID_ATENCION = "idAtencion";
     public static final String ID_SALA = "idSala";
     public static final String URL_SALA = "urlSala";

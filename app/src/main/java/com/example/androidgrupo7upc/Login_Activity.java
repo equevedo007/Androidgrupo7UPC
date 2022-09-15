@@ -2,7 +2,9 @@ package com.example.androidgrupo7upc;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
+import static com.example.androidgrupo7upc.util.Constants.NOMBRE;
 import static com.example.androidgrupo7upc.util.Constants.S_CERO;
+import static com.example.androidgrupo7upc.util.Constants.TOKEN;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgrupo7upc.model.LoginRequest;
 import com.example.androidgrupo7upc.network.RESTManager;
 import com.example.androidgrupo7upc.network.impl.LoginApi;
+import com.example.androidgrupo7upc.util.Util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.json.JSONException;
@@ -57,6 +60,8 @@ public class Login_Activity extends AppCompatActivity {
             try {
                 LoginApi.login(loginResponse -> {
                     if (S_CERO.equals(loginResponse.getCodigoRespuesta())) {
+                        Util.setSharedPreference(String.class, getApplicationContext(), NOMBRE, loginResponse.getUsuario().getNombres());
+                        Util.setSharedPreference(String.class, getApplicationContext(), TOKEN, loginResponse.getUsuario().getToken());
                         startActivity(new Intent(this, menu_Activity.class));
                     } else {
                         Toast.makeText(Login_Activity.this, loginResponse.getMensajeRespuesta(), LENGTH_LONG).show();
