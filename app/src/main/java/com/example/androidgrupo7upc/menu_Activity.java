@@ -1,7 +1,10 @@
 package com.example.androidgrupo7upc;
 
+import static com.example.androidgrupo7upc.util.Constants.NOMBRE;
 import static com.example.androidgrupo7upc.util.Constants.TEXTO_VACIO;
 import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
+
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,10 +29,10 @@ public class menu_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        String nombre = (String) getSharedPreference(String.class, menu_Activity.this, Constants.NOMBRE);
+        String nombre = (String) getSharedPreference(String.class, menu_Activity.this, NOMBRE);
 
         TextView txtWelcome = findViewById(R.id.txtWelcome);
-        txtWelcome.setText(String.format("Bienvenido%s", StringUtils.isEmpty(nombre) ? TEXTO_VACIO : ", " + nombre));
+        txtWelcome.setText(String.format("Bienvenido%s", isEmpty(nombre) ? TEXTO_VACIO : ", " + nombre));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,16 +2,16 @@ package com.example.androidgrupo7upc;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
+import static android.widget.Toast.makeText;
 import static com.example.androidgrupo7upc.util.Constants.S_CERO;
-import static com.example.androidgrupo7upc.util.Constants.TEXTO_VACIO;
 import static com.example.androidgrupo7upc.util.Constants.TOKEN;
 import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
+import static java.lang.String.valueOf;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,7 +33,6 @@ import com.example.androidgrupo7upc.network.impl.UbigeoApi;
 import com.example.androidgrupo7upc.util.DataMapper;
 import com.example.androidgrupo7upc.util.Util;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -51,8 +49,6 @@ public class Registropaciente extends AppCompatActivity {
 
     private Spinner spnTipoDocumento, spnSexo, spnEstadoCivil, spnGrado;
     private Spinner spnDepartamento, spnProvincia, spnDistrito;
-
-    private Button btnRegistrar;
 
     private String tipoDocumento = "0";
     private String sexo = "0";
@@ -101,7 +97,7 @@ public class Registropaciente extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     Registropaciente.this,
                     (view, year1, monthOfYear, dayOfMonth) -> {
-                        String nMonth = monthOfYear + 1 < 10 ? "0" + (monthOfYear + 1) : String.valueOf(monthOfYear + 1);
+                        String nMonth = monthOfYear + 1 < 10 ? "0" + (monthOfYear + 1) : valueOf(monthOfYear + 1);
                         txtFechaNacimiento.setText(dayOfMonth + "/" + nMonth + "/" + year1);
                     },
                     year, month, day);
@@ -209,7 +205,7 @@ public class Registropaciente extends AppCompatActivity {
         txtDireecion = findViewById(R.id.txtDireecion);
         txtReferencia = findViewById(R.id.txtReferencia);
 
-        btnRegistrar = findViewById(R.id.btnRegistrar);
+        Button btnRegistrar = findViewById(R.id.btnRegistrar);
         btnRegistrar.setOnClickListener(view -> registrarPaciente());
     }
 
@@ -258,7 +254,7 @@ public class Registropaciente extends AppCompatActivity {
 
                 spnDepartamento.setAdapter(adapterDepartamento);
             } else {
-                Toast.makeText(Registropaciente.this, "No se cargaron los departamentos", LENGTH_LONG).show();
+                makeText(Registropaciente.this, "No se cargaron los departamentos", LENGTH_LONG).show();
             }
         });
     }
@@ -283,7 +279,7 @@ public class Registropaciente extends AppCompatActivity {
 
                     spnProvincia.setAdapter(adapterProvincia);
                 } else {
-                    Toast.makeText(Registropaciente.this, "No se cargaron las provincias", LENGTH_LONG).show();
+                    makeText(Registropaciente.this, "No se cargaron las provincias", LENGTH_LONG).show();
                 }
             }, idDepartamento);
         }
@@ -308,7 +304,7 @@ public class Registropaciente extends AppCompatActivity {
 
                     spnDistrito.setAdapter(adapterDistrito);
                 } else {
-                    Toast.makeText(Registropaciente.this, "No se cargaron los distritos", LENGTH_LONG).show();
+                    makeText(Registropaciente.this, "No se cargaron los distritos", LENGTH_LONG).show();
                 }
             }, idProvincia);
         }
@@ -329,7 +325,7 @@ public class Registropaciente extends AppCompatActivity {
         String direecion = txtDireecion.getText().toString();
         String referencia = txtReferencia.getText().toString();
 
-        if (tipoDocumento.isEmpty()) {
+        if (tipoDocumento.isEmpty() || S_CERO.equals(tipoDocumento)) {
             setSpinnerError(spnTipoDocumento);
             error = true;
         }
@@ -353,15 +349,15 @@ public class Registropaciente extends AppCompatActivity {
             txtFechaNacimiento.setError(getString(R.string.campo_requerido));
             error = true;
         }
-        if (sexo.isEmpty()) {
+        if (sexo.isEmpty() || S_CERO.equals(sexo)) {
             setSpinnerError(spnSexo);
             error = true;
         }
-        if (estadoCivil.isEmpty()) {
+        if (estadoCivil.isEmpty() || S_CERO.equals(estadoCivil)) {
             setSpinnerError(spnEstadoCivil);
             error = true;
         }
-        if (grado.isEmpty()) {
+        if (grado.isEmpty() || S_CERO.equals(grado)) {
             setSpinnerError(spnGrado);
             error = true;
         }
@@ -381,15 +377,15 @@ public class Registropaciente extends AppCompatActivity {
             txtCorreo.setError(getString(R.string.campo_requerido));
             error = true;
         }
-        if (idDepartamento.isEmpty()) {
+        if (idDepartamento.isEmpty() || S_CERO.equals(idDepartamento)) {
             setSpinnerError(spnDepartamento);
             error = true;
         }
-        if (idProvincia.isEmpty()) {
+        if (idProvincia.isEmpty() || S_CERO.equals(idProvincia)) {
             setSpinnerError(spnProvincia);
             error = true;
         }
-        if (idDistrito.isEmpty()) {
+        if (idDistrito.isEmpty() || S_CERO.equals(idDistrito)) {
             setSpinnerError(spnDistrito);
             error = true;
         }
@@ -403,7 +399,7 @@ public class Registropaciente extends AppCompatActivity {
         }
 
         if (error) {
-            Toast.makeText(getBaseContext(), "Favor de registrar los campos requeridos.", LENGTH_SHORT).show();
+            makeText(getBaseContext(), "Favor de registrar los campos requeridos.", LENGTH_SHORT).show();
         } else {
             PatientRequest patientRequest = new PatientRequest();
             patientRequest.setTipoDocumento(tipoDocumento);
@@ -426,26 +422,22 @@ public class Registropaciente extends AppCompatActivity {
             try {
                 String token = (String) getSharedPreference(String.class, Registropaciente.this, TOKEN);
 
-                Log.i("====>", "TOKEN : " + token);
-                Log.i("====>", "REQUEST : " + new ObjectMapper().writeValueAsString(patientRequest));
-
                 PacienteApi.addPatient(patientResponse -> {
                     if (S_CERO.equals(patientResponse.getCodigoRespuesta())) {
+                        makeText(Registropaciente.this, "Paciente registrado correctamente", LENGTH_LONG).show();
                         startActivity(new Intent(this, menu_Activity.class));
                     } else {
-                        Toast.makeText(Registropaciente.this, patientResponse.getMensajeRespuesta(), LENGTH_LONG).show();
+                        makeText(Registropaciente.this, patientResponse.getMensajeRespuesta(), LENGTH_LONG).show();
                     }
                 }, token, patientRequest);
             } catch (JsonProcessingException | JSONException e) {
-                Toast.makeText(Registropaciente.this, String.valueOf(e), LENGTH_LONG).show();
+                makeText(Registropaciente.this, valueOf(e), LENGTH_LONG).show();
             }
         }
     }
 
     private void setSpinnerError(Spinner spinnerError) {
         TextView errorTextview = (TextView) spinnerError.getSelectedView();
-        errorTextview.setError(TEXTO_VACIO);
-        errorTextview.setTextColor(Color.RED);
-        errorTextview.setText(getString(R.string.campo_requerido));
+        errorTextview.setError(getString(R.string.campo_requerido));
     }
 }
