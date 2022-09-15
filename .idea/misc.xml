@@ -6,6 +6,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.5635416666666667" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_change_password.xml" value="0.33" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_create_user.xml" value="0.2" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_hc_general.xml" value="0.25" />
@@ -24,6 +25,10 @@
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/layout/activity_visualizar_usuarios.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/layout/activity_webservices.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/menu/principal.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_habilitar_deshabilitar_usuario.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_hc_examen_visual.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_registropaciente.xml" value="0.5635416666666667" />
       </map>
     </option>
   </component>

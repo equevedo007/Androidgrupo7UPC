@@ -1,84 +1,72 @@
 package com.example.androidgrupo7upc;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.LENGTH_SHORT;
+import static com.example.androidgrupo7upc.util.Constants.S_CERO;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-
-import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.androidgrupo7upc.model.LoginRequest;
+import com.example.androidgrupo7upc.network.RESTManager;
+import com.example.androidgrupo7upc.network.impl.LoginApi;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Login_Activity extends AppCompatActivity {
 
-
-    //private Object StringRequest;
+    EditText txtUsuario, txtClave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        txtUsuario = findViewById(R.id.txtUsuario);
+        txtClave = findViewById(R.id.txtClave);
+
+        RESTManager.getInstance(this);
     }
 
+    public void login(View view) {
+        boolean error = false;
+        String usuario = txtUsuario.getText().toString();
+        String clave = txtClave.getText().toString();
 
-
-    public void login (View v) {
-
-        /*final EditText txtUsuario = findViewById(R.id.editTextTextPersonName);
-
-        final EditText txtPassword = findViewById(R.id.editTextTextPassword2);
-
-        String url = "http://139.144.33.83:8080/opeviso-api/v1/login";
-
-       StringRequest stringRequest= new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast toast = Toast.makeText(Login_Activity.this,"Se insertó correctamente", Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+        if (usuario.isEmpty()) {
+            txtUsuario.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (clave.isEmpty()) {
+            txtClave.setError(getString(R.string.campo_requerido));
+            error = true;
+        }
+        if (error) {
+            Toast.makeText(getBaseContext(), "Favor de registrar los campos requeridos.", LENGTH_SHORT).show();
+        } else {
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.setUsuario(usuario);
+            loginRequest.setPassword(clave);
+            try {
+                LoginApi.login(loginResponse -> {
+                    if (S_CERO.equals(loginResponse.getCodigoRespuesta())) {
+                        startActivity(new Intent(this, menu_Activity.class));
+                    } else {
+                        Toast.makeText(Login_Activity.this, loginResponse.getMensajeRespuesta(), LENGTH_LONG).show();
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("=====>", error.toString());
-                    }
-                }
-        ){
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap();
-                params.put("nombre", txtUsuario.getText().toString());
-                params.put("precio", txtPassword.getText().toString());
-                return params;
+                }, loginRequest);
+            } catch (JsonProcessingException | JSONException e) {
+                Toast.makeText(Login_Activity.this, String.valueOf(e), LENGTH_LONG).show();
             }
-        };
-
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);*/
-
-         startActivity(new Intent(this, menu_Activity.class));
-
         }
     }
+}
 
 
