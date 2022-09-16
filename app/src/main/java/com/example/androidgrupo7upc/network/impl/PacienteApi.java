@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//Edinson Quevedo}
 public class PacienteApi {
 
     public static void addPatient(final RESTManager.RESTListener<ResponseType> pacienteListener,

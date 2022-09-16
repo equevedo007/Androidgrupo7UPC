@@ -23,7 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.json.JSONException;
 
-
+//Edinson Quevedo}
 public class Login_Activity extends AppCompatActivity {
 
     EditText txtUsuario, txtClave;

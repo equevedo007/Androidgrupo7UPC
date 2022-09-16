@@ -58,7 +58,7 @@ public class Registropaciente extends AppCompatActivity {
     private String idProvincia = "0";
     private String idDistrito = "0";
     private String idUbigeo = "0";
-
+    //Edinson Quevedo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

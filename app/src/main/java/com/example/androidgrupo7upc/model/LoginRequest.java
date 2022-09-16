@@ -3,7 +3,7 @@ package com.example.androidgrupo7upc.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+//Edinson Quevedo}
 @JsonInclude(Include.NON_NULL)
 public class LoginRequest {
 
