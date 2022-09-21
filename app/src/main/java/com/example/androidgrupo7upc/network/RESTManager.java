@@ -7,16 +7,11 @@ import com.android.volley.toolbox.Volley;
 
 public class RESTManager {
 
-    public interface RESTListener<T> {
-        void onResult(T Object);
-    }
-
     private static RESTManager instance = null;
     private static RequestQueue requestQueue;
     private static Context context;
-
     private RESTManager(Context context) {
-        this.context = context;
+        RESTManager.context = context;
         requestQueue = Volley.newRequestQueue(context.getApplicationContext());
     }
 
@@ -31,5 +26,9 @@ public class RESTManager {
 
     public static Context getContext() {
         return context;
+    }
+
+    public interface RESTListener<T> {
+        void onResult(T Object);
     }
 }

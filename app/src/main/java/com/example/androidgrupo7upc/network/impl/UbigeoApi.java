@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-//Edinson Quevedo}
+
 public class UbigeoApi {
 
     public static void getDepartments(final RESTManager.RESTListener<UbigeoResponse> ubigeoListener) {

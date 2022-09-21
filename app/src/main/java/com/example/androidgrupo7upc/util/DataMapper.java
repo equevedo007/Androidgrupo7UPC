@@ -7,6 +7,9 @@ import java.util.Map;
 public class DataMapper {
 
     public static final Map<String, String> tipoDocumentoMap;
+    public static final Map<String, String> tipoEstadoCivilMap;
+    public static final Map<String, String> tipoGeneroMap;
+    public static final Map<String, String> tipoGradoMap;
 
     static {
         Map<String, String> map = new HashMap<>();
@@ -21,8 +24,6 @@ public class DataMapper {
         tipoDocumentoMap = Collections.unmodifiableMap(map);
     }
 
-    public static final Map<String, String> tipoEstadoCivilMap;
-
     static {
         Map<String, String> map = new HashMap<>();
         map.put("0", "Selecciona un estado civil");
@@ -35,8 +36,6 @@ public class DataMapper {
         tipoEstadoCivilMap = Collections.unmodifiableMap(map);
     }
 
-    public static final Map<String, String> tipoGeneroMap;
-
     static {
         Map<String, String> map = new HashMap<>();
         map.put("0", "Selecciona un género");
@@ -45,8 +44,6 @@ public class DataMapper {
 
         tipoGeneroMap = Collections.unmodifiableMap(map);
     }
-
-    public static final Map<String, String> tipoGradoMap;
 
     static {
         Map<String, String> map = new HashMap<>();

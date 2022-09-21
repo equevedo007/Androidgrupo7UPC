@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.RegistroPacienteActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:id="@+id/lytRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="@string/lbl_title_register_patient"
+                    android:textColor="@color/black_app"
+                    android:textSize="24sp"
+                    android:textStyle="italic|bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnDocumentTypeLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/document_type_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/document_type_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnDocumentType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtDocumentNumberLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/document_number_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/document_number_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtDocumentNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNameLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/name_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtLastNameLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/last_name_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtSecondLastNameLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/second_last_name_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/second_last_name_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSecondLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtBirthdayLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/birthday_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/birthday_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtBirthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnGenreLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/genre_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/genre_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnGenre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnMaritalStatusLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/marital_status_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/marital_status_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnMaritalStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnDegreeInstructionLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/degree_instruction_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/degree_instruction_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnDegreeInstruction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtOccupationLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/occupation_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/occupation_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCellphoneLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cellphone_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/cellphone_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCellphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtPhoneLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/phone_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtEmailLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/email_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnDepartmentLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/department_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/department_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnDepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnProvinceLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/province_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/province_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnProvince"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spnDistrictLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/district_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/district_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/spnDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:ignore="KeyboardInaccessibleWidget"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtAddressLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/address_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtReferenceLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/reference_hint"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/reference_placeholder"
+                    app:placeholderTextColor="@color/gray_placeholder_text_field"
+                    tools:viewBindingIgnore="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtReference"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:viewBindingIgnore="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegistrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/btn_registrar"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

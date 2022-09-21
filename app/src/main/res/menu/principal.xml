@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/menu_Paciente"
-        android:title="Paciente"
-        app:showAsAction="always"
-        android:icon="@drawable/paciente001"/>
+        android:title="@string/opt_paciente"
+        app:showAsAction="never" />
 
-
-    <item
-        android:id="@+id/menu_Registro_Historia_Antecedentes"
-        android:title="Historia Antecedentes"
-        app:showAsAction="always"
-        android:icon="@drawable/registrohistoriaantecedentes001"/>
-
-    <item
-        android:id="@+id/menu_Visualizar_Usuarios"
-        android:title="visualizar Usuarios"
-        app:showAsAction="always"
-        android:icon="@drawable/visualizarusuarios001"/>
     <item
         android:id="@+id/menu_hc"
-        android:title="Historia clinica"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_reguser"
-        android:title="Registrar usuario"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_changepassword"
-        android:title="Cambiar contraseña"
+        android:title="@string/opt_hc"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_salir"
-        android:title="Salir"
+        android:title="@string/opt_salir"
         app:showAsAction="never" />
 
 </menu>

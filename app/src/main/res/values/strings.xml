@@ -1,166 +1,86 @@
 <resources>
     <string name="app_name">Android grupo 7 UPC</string>
-    <string name="mantenimiento">Mantenimiento</string>
-    <string name="registro_historia_antecedentes">Registro_historia_antecedentes</string>
-    <string name="visualizar_usuarios">Visualizar_Usuarios</string>
-    <string name="cambiar_password">Cambiar Contraseña</string>
-    <string name="ingresar_password">Ingrese Contraseña</string>
-    <string name="confirmar_password">Confirmar Contraseña</string>
-    <string name="registro_de_paciente">Registro de Paciente</string>
-    <string name="nro_documento">Nro. Documento</string>
-    <string name="nombres">Nombres</string>
-    <string name="apellido_paterno">Apellido Paterno</string>
-    <string name="apellido_materno">Apellido Materno</string>
-    <string name="Ocupacion" />
-    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
-    <string name="nombres_completos">Nombres Completos</string>
-    <string name="buscar">Buscar</string>
-    <string name="numero_documento">Número Documento</string>
-    <string name="fecha">Ingrese fecha</string>
-    <string name="num_ficha">Número ficha</string>
-    <string name="direccion">Dirección</string>
-    <string name="edad">Edad</string>
-    <string name="motivo_consulta">Motivo de la consulta</string>
-    <string name="siguiente">Siguiente</string>
-    <string name="dni">DNI</string>
-    <string name="cerrar">CERRAR</string>
-    <string name="guardar">GUARDAR</string>
-    <string name="refraccion">REFRACCION</string>
 
-    <string name="campo_requerido">Campo Requerido</string>
+    <string name="lbl_title_logo">Bienvenidos al sistema de óptica</string>
+    <string name="lbl_title_register_patient">Registro de Paciente</string>
 
-    <string-array name="tipodocumento">
-        <item>DNI</item>
-        <item>Carnet de Extranjeria</item>
-        <item>RUC</item>
-        <item>Pasaporte</item>
-        <item>Partida de Nacimiento</item>
-        <item>Otros</item>
-    </string-array>
+    <string name="user_hint">Usuario</string>
+    <string name="user_placeholder">Nombre de usuario</string>
 
-    <string-array name="SeleccionarSexo">
-        <item>--Seleccionar Sexo--</item>
-        <item>Masculino</item>
-        <item>Femenino</item>
-    </string-array>
+    <string name="pass_hint">Contraseña</string>
+    <string name="pass_placeholder">Ingrese su contraseña</string>
 
-    <string-array name="SeleccionarEstadoCivil">
-        <item>--Seleccionar Estado Civil--</item>
-        <item>Soltero</item>
-        <item>Casado</item>
-        <item>Conviviente</item>
-        <item>Divorciado/Casado</item>
-        <item>Viudo</item>
-    </string-array>
+    <string name="document_type_hint">Tipo Documento</string>
+    <string name="document_type_placeholder">[Seleccione tipo documento]</string>
 
-    <string-array name="SeleccionarGradoInstrucción">
-        <item>--Seleccionar Grado Instrucción--</item>
-        <item>Primaria</item>
-        <item>Secundaria</item>
-        <item>Técnico Incompleto</item>
-        <item>Técnico completo</item>
-        <item>Universitario Parcial</item>
-        <item>Universitario Completo</item>
-        <item>Otros</item>
-    </string-array>
+    <string name="document_number_hint">Nro. Documento</string>
+    <string name="document_number_placeholder">Ingresa nro. documento</string>
 
-    <string-array name="ListaDepartamentos">
-        <item>--Seleccionar Departamento--</item>
-        <item>Amazonas</item>
-        <item>Áncash</item>
-        <item>Apurimac</item>
-        <item>Arequipa</item>
-        <item>Ayacucho</item>
-        <item>Cajamarca</item>
-        <item>Callao</item>
-        <item>Cusco</item>
-        <item>Huancavelica</item>
-        <item>Huánuco</item>
-        <item>Ica</item>
-        <item>Junín</item>
-        <item>La Libertad</item>
-        <item>Lambayaque</item>
-        <item>Lima</item>
-        <item>Loreto</item>
-        <item>Madre de Dios</item>
-        <item>Moquegua</item>
-        <item>Pasco</item>
-        <item>Piura</item>
-        <item>Puno</item>
-        <item>San Martin</item>
-        <item>Tacna</item>
-        <item>Tumbes</item>
-        <item>Ucayali</item>
-    </string-array>
+    <string name="full_name_hint">Nombres completos</string>
+    <string name="full_name_placeholder">Ingresa nombres</string>
 
-    <string-array name="ListaProvincias">
-        <item>--Seleccionar Provincias--</item>
-        <item>Barranca</item>
-        <item>Cajatambo</item>
-        <item>Cañete</item>
-        <item>Canta</item>
-        <item>Huaral</item>
-        <item>Huarochirí</item>
-        <item>Huaura</item>
-        <item>Lima</item>
-        <item>Oyón</item>
-        <item>Yauyos</item>
-    </string-array>
+    <string name="name_hint">Nombres</string>
+    <string name="name_placeholder">Ingresa nombres</string>
 
-    <string-array name="ListaDistrito">
-        <item>--Seleccionar Distrito--</item>
-        <item>Ancón</item>
-        <item>Ate</item>
-        <item>Barranco</item>
-        <item>Breña</item>
-        <item>Carabayllo</item>
-        <item>Chaclacayo</item>
-        <item>Chorrillos</item>
-        <item>Cieneguilla</item>
-        <item>Comas</item>
-        <item>El Agustino</item>
-        <item>Independencia</item>
-        <item>Jesús María</item>
-        <item>La Molina</item>
-        <item>La Victoria</item>
-        <item>Lima</item>
-        <item>Lince</item>
-        <item>Los Olivos</item>
-        <item>Lurigancho</item>
-        <item>Lurin</item>
-        <item>Magdalena del Mar</item>
-        <item>Miraflores</item>
-        <item>Pachacamac</item>
-        <item>Pucusana</item>
-        <item>Pueblo Libre</item>
-        <item>Puente Piedra</item>
-        <item>Punta Hermosa</item>
-        <item>Punta Negra</item>
-        <item>Rímac</item>
-        <item>San Bartolo</item>
-        <item>San Borja</item>
-        <item>San Isidro</item>
-        <item>San Juan de Lurigancho</item>
-        <item>San Juan de Miraflores</item>
-        <item>San Luis</item>
-        <item>San Martín de Porres</item>
-        <item>San Miguel</item>
-        <item>Santa Anita</item>
-        <item>Santa María del Mar</item>
-        <item>Santa Rosa</item>
-        <item>Santiago de Surco</item>
-        <item>Surquillo</item>
-        <item>Villa El Salvador</item>
-        <item>Villa María del Triunfo</item>
-    </string-array>
-    <string name="title_activity_login">LoginActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="last_name_hint">Apellido Paterno</string>
+    <string name="last_name_placeholder">Ingresa apellido paterno</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="second_last_name_hint">Apellido Materno</string>
+    <string name="second_last_name_placeholder">Ingresa apellido materno</string>
+
+    <string name="birthday_hint">Fecha de Nacimiento</string>
+    <string name="birthday_placeholder">Ingresa fecha de nacimiento</string>
+
+    <string name="genre_hint">Género</string>
+    <string name="genre_placeholder">[Seleccione género]</string>
+
+    <string name="marital_status_hint">Estado Civil</string>
+    <string name="marital_status_placeholder">[Seleccione estado civil]</string>
+
+    <string name="degree_instruction_hint">Grado de Instrucción</string>
+    <string name="degree_instruction_placeholder">[Seleccione grado de instrucción]</string>
+
+    <string name="occupation_hint">Ocupación</string>
+    <string name="occupation_placeholder">Ingresa ocupación</string>
+
+    <string name="cellphone_hint">Celular</string>
+    <string name="cellphone_placeholder">Ingresa celular</string>
+
+    <string name="phone_hint">Teléfono</string>
+    <string name="phone_placeholder">Ingresa teléfono</string>
+
+    <string name="email_hint">Correo Electrónico</string>
+    <string name="email_placeholder">Ingresa correo electrónico</string>
+
+    <string name="department_hint">Departamento</string>
+    <string name="department_placeholder">[Seleccione departamento]</string>
+
+    <string name="province_hint">Provincia</string>
+    <string name="province_placeholder">[Seleccione provincia]</string>
+
+    <string name="district_hint">Distrito</string>
+    <string name="district_placeholder">[Seleccione distrito]</string>
+
+    <string name="address_hint">Dirección</string>
+    <string name="address_placeholder">Ingresa dirección</string>
+
+    <string name="reference_hint">Referencia</string>
+    <string name="reference_placeholder">Ingresa referencia</string>
+
+    <string name="required_field">Campo Requerido</string>
+
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="btn_ingresar">Ingresar</string>
+
+    <string name="imgLogo">Logo</string>
+
+    <string name="lbl_names">Nombres</string>
+    <string name="lbl_last_names">Apellidos</string>
+    <string name="lbl_document_number">Nro. Documento</string>
+
+    <string name="opt_paciente">Paciente</string>
+    <string name="opt_hc">Historia Clínica</string>
+    <string name="opt_salir">Salir</string>
 
 </resources>

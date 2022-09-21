@@ -7,6 +7,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.5635416666666667" />
+        <entry key="../../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.5635416666666667" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_change_password.xml" value="0.33" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_create_user.xml" value="0.2" />
         <entry key="..\:/FREDDY/UPC/APP MOVILES Y CLOUD/TrabajoAPP/app/src/main/res/layout/activity_hc_general.xml" value="0.25" />
@@ -25,11 +26,27 @@
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/layout/activity_visualizar_usuarios.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/layout/activity_webservices.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/EDINSON-LAPTOP/AndroidStudioProjects/Androidgrupo7UPC/app/src/main/res/menu/principal.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.351" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.351" />
+        <entry key="app/src/main/res/layout/activity_actualizar_paciente.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_create_user.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_habilitar_deshabilitar_usuario.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_hc_examen_visual.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_hc_general.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/layout/activity_listado_paciente.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_registro_antecedentes.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_registro_paciente.xml" value="0.5404595404595405" />
         <entry key="app/src/main/res/layout/activity_registropaciente.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_visualizar_paciente.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_visualizar_usuarios.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_webservices.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/layout/drop_down_item.xml" value="0.5625" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/listview_patient_row.xml" value="0.5625" />
         <entry key="app/src/main/res/menu/principal.xml" value="0.5635416666666667" />
       </map>
     </option>

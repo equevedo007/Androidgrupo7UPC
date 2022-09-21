@@ -17,53 +17,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".webservices"
+            android:name=".ui.activity.ListadoPacienteActivity"
             android:exported="false" />
         <activity
-            android:name=".hc_examen_visual"
+            android:name=".ui.activity.RegistroPacienteActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroAntecedentes_Activity"
+            android:name=".ui.activity.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".VisualizarUsuarios_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".actualizar_paciente"
-            android:exported="false" />
-        <activity
-            android:name=".habilitar_deshabilitar_usuario"
-            android:exported="false" />
-        <activity
-            android:name=".visualizar_paciente"
-            android:exported="false" />
-        <activity
-            android:name=".Registropaciente"
-            android:exported="false" />
-        <activity
-            android:name=".hc_general"
-            android:exported="false" />
-        <activity
-            android:name=".create_user"
-            android:exported="false" />
-        <activity
-            android:name=".change_password"
-            android:exported="false" />
-        <activity
-            android:name=".menu_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Login_Activity"
+            android:name=".ui.activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
-
 </manifest>

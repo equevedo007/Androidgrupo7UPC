@@ -15,16 +15,16 @@ public class DepartmentType {
     @JsonProperty("descDepartamento")
     private String descDepartamento;
 
-    public String getIdDepartamento() {
-        return idDepartamento;
-    }
-
     public DepartmentType() {
     }
 
     public DepartmentType(String idDepartamento, String descDepartamento) {
         this.idDepartamento = idDepartamento;
         this.descDepartamento = descDepartamento;
+    }
+
+    public String getIdDepartamento() {
+        return idDepartamento;
     }
 
     public void setIdDepartamento(String idDepartamento) {
