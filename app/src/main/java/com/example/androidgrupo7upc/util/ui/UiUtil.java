@@ -1,4 +1,4 @@
-package com.example.androidgrupo7upc.util;
+package com.example.androidgrupo7upc.util.ui;
 
 import android.view.View;
 import android.view.ViewGroup;

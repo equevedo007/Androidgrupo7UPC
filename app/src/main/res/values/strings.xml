@@ -3,6 +3,8 @@
 
     <string name="lbl_title_logo">Bienvenidos al sistema de óptica</string>
     <string name="lbl_title_register_patient">Registro de Paciente</string>
+    <string name="lbl_title_register_antecedent">Registro de Antcedentes</string>
+    <string name="lbl_subtitle_register_antecedent_1">Antcedentes de enfermedades existentes</string>
 
     <string name="user_hint">Usuario</string>
     <string name="user_placeholder">Nombre de usuario</string>
@@ -72,6 +74,7 @@
     <string name="btn_buscar">Buscar</string>
     <string name="btn_registrar">Registrar</string>
     <string name="btn_ingresar">Ingresar</string>
+    <string name="btnAntecedentes">Antecedentes</string>
 
     <string name="imgLogo">Logo</string>
 

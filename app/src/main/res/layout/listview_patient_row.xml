@@ -87,6 +87,17 @@
                 android:layout_gravity="center_vertical|start"
                 android:textSize="15sp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAntecedent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/btnAntecedentes"
+                android:text="@string/btnAntecedentes"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:backgroundTint="@color/black_app" />
 
         </LinearLayout>
 

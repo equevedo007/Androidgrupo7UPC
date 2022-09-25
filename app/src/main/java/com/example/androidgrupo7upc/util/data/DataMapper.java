@@ -1,4 +1,4 @@
-package com.example.androidgrupo7upc.util;
+package com.example.androidgrupo7upc.util.data;
 
 import java.util.Collections;
 import java.util.HashMap;

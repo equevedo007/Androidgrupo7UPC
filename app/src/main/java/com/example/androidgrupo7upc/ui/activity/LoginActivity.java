@@ -6,7 +6,7 @@ import static android.widget.Toast.makeText;
 import static com.example.androidgrupo7upc.util.Constants.NOMBRE;
 import static com.example.androidgrupo7upc.util.Constants.S_CERO;
 import static com.example.androidgrupo7upc.util.Constants.TOKEN;
-import static com.example.androidgrupo7upc.util.UiUtil.findViewsWithType;
+import static com.example.androidgrupo7upc.util.ui.UiUtil.findViewsWithType;
 import static com.example.androidgrupo7upc.util.Util.setSharedPreference;
 import static java.lang.String.valueOf;
 import static java.util.Objects.requireNonNull;

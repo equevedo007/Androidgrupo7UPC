@@ -1,5 +1,8 @@
 package com.example.androidgrupo7upc.ui.adapter;
 
+import static android.widget.Toast.LENGTH_SHORT;
+import static android.widget.Toast.makeText;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidgrupo7upc.R;
 import com.example.androidgrupo7upc.model.PatientType;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -37,14 +41,20 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     public void onBindViewHolder(@NonNull PacienteViewHolder holder, int position) {
         PatientType patientBean = mListaPaciente.get(position);
         TextView txtNombresItem, txtApellidosItem, txtNroDocItem;
+        MaterialButton btnAntecedent;
 
         txtNombresItem = holder.txtNombresItem;
         txtApellidosItem = holder.txtApellidosItem;
         txtNroDocItem = holder.txtNroDocItem;
+        btnAntecedent = holder.btnAntecedent;
 
         txtNombresItem.setText(patientBean.getNombres());
         txtApellidosItem.setText(String.format("%s %s", patientBean.getApePaterno(), patientBean.getApeMaterno()));
         txtNroDocItem.setText(patientBean.getNumeroDocumento());
+
+        btnAntecedent.setOnClickListener(view -> {
+            makeText(mContext, patientBean.getNombres(), LENGTH_SHORT).show();
+        });
     }
 
     @Override
@@ -55,12 +65,14 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     public static class PacienteViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtNombresItem, txtApellidosItem, txtNroDocItem;
+        MaterialButton btnAntecedent;
 
         public PacienteViewHolder(@NonNull View itemView) {
             super(itemView);
             txtNombresItem = itemView.findViewById(R.id.txtName);
             txtApellidosItem = itemView.findViewById(R.id.txtLastName);
             txtNroDocItem = itemView.findViewById(R.id.txtDocumentNumber);
+            btnAntecedent = itemView.findViewById(R.id.btnAntecedent);
         }
     }
 }

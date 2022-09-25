@@ -11,7 +11,6 @@ import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -28,15 +27,14 @@ import com.example.androidgrupo7upc.model.MasterType;
 import com.example.androidgrupo7upc.network.RESTManager;
 import com.example.androidgrupo7upc.network.impl.PacienteApi;
 import com.example.androidgrupo7upc.ui.adapter.PacienteAdapter;
-import com.example.androidgrupo7upc.util.DataMapper;
 import com.example.androidgrupo7upc.util.Util;
+import com.example.androidgrupo7upc.util.data.DataMapper;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListadoPacienteActivity extends AppCompatActivity {
 
     private EditText txtNroDocumento, txtNombres;
-    private MaterialButton btnSearch;
 
     private AutoCompleteTextView spnTipoDocumento;
     private RecyclerView pacienteRecyclerView;
@@ -69,7 +67,7 @@ public class ListadoPacienteActivity extends AppCompatActivity {
         txtNroDocumento = findViewById(R.id.txtDocumentNumber);
         txtNombres = findViewById(R.id.txtFullName);
 
-        btnSearch = findViewById(R.id.btnSearch);
+        MaterialButton btnSearch = findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(view -> {
             String nroDocumento = txtNroDocumento.getText().toString();
             String nombres = txtNombres.getText().toString();
@@ -78,8 +76,9 @@ public class ListadoPacienteActivity extends AppCompatActivity {
             pacienteAdapter.notifyDataSetChanged();
         });
 
-        pacienteRecyclerView = findViewById(R.id.lstPatients);
         manager = new LinearLayoutManager(this);
+        pacienteRecyclerView = findViewById(R.id.lstPatients);
+        pacienteRecyclerView.setLayoutManager(manager);
         pacienteRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
