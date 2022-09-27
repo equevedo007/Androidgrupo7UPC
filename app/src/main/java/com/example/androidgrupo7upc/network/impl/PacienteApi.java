@@ -34,8 +34,9 @@ import java.util.Map;
 public class PacienteApi {
 
     public static void getPatients(final RESTManager.RESTListener<PatientResponse> pacienteListener,
-                                   String tipoDocumento, String numeroDocumento, String nombres, String token) {
-        String url = WS_OPEVISO_GENERAL_PATH + "/v1/paciente/search?pageSize=10&sortBy=idPaciente&direction=desc";
+                                   String tipoDocumento, String numeroDocumento, String nombres,
+                                   String numeroPagina, String token) {
+        String url = WS_OPEVISO_GENERAL_PATH + "/v1/paciente/search?pageSize=10&sortBy=idPaciente&direction=desc&pageNo=" + numeroPagina;
 
         if (!isEmpty(tipoDocumento)) {
             url = url + "&tipoDoc=" + tipoDocumento;

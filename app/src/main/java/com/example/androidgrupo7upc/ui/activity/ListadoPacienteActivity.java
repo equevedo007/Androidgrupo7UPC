@@ -1,6 +1,7 @@
 package com.example.androidgrupo7upc.ui.activity;
 
 import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
@@ -11,19 +12,19 @@ import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidgrupo7upc.R;
 import com.example.androidgrupo7upc.model.MasterType;
+import com.example.androidgrupo7upc.model.PatientType;
 import com.example.androidgrupo7upc.network.RESTManager;
 import com.example.androidgrupo7upc.network.impl.PacienteApi;
 import com.example.androidgrupo7upc.ui.adapter.PacienteAdapter;
@@ -32,19 +33,22 @@ import com.example.androidgrupo7upc.util.data.DataMapper;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListadoPacienteActivity extends AppCompatActivity {
 
     private EditText txtNroDocumento, txtNombres;
-
     private AutoCompleteTextView spnTipoDocumento;
+
     private RecyclerView pacienteRecyclerView;
-    private LinearLayoutManager manager;
+    private final List<PatientType> patientList = new ArrayList<>();
     private PacienteAdapter pacienteAdapter;
     private ProgressBar progressBar;
-
-    private String tipoDocumento = "0";
-    private Boolean isScrolling = false;
-    private int currentItems, totalItems, scrollOutItems;
+    private String nroDocumento = TEXTO_VACIO;
+    private String nombres = TEXTO_VACIO;
+    private String tipoDocumento = TEXTO_VACIO;
+    private int pageNumber = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +56,6 @@ public class ListadoPacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listado_paciente);
 
         RESTManager.getInstance(this);
-
-        progressBar = findViewById(R.id.progress_circular);
-
-        obtenerPacientes(TEXTO_VACIO, TEXTO_VACIO, TEXTO_VACIO);
 
         spnTipoDocumento = findViewById(R.id.spnDocumentType);
         obtenerTipoDocumento();
@@ -69,38 +69,31 @@ public class ListadoPacienteActivity extends AppCompatActivity {
 
         MaterialButton btnSearch = findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(view -> {
-            String nroDocumento = txtNroDocumento.getText().toString();
-            String nombres = txtNombres.getText().toString();
+            nroDocumento = txtNroDocumento.getText().toString();
+            nombres = txtNombres.getText().toString();
 
-            obtenerPacientes(tipoDocumento, nroDocumento, nombres);
-            pacienteAdapter.notifyDataSetChanged();
+            if (!tipoDocumento.isEmpty() || !nroDocumento.isEmpty() || !nombres.isEmpty()) {
+                obtenerPacientes(tipoDocumento, nroDocumento, nombres, pageNumber);
+                //pacienteAdapter.notifyDataSetChanged();
+            }
         });
 
-        manager = new LinearLayoutManager(this);
+        NestedScrollView nestedScrollView = findViewById(R.id.lytScroll);
         pacienteRecyclerView = findViewById(R.id.lstPatients);
-        pacienteRecyclerView.setLayoutManager(manager);
-        pacienteRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-                    isScrolling = true;
-                }
-            }
+        progressBar = findViewById(R.id.progress_circular);
 
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                currentItems = manager.getChildCount();
-                totalItems = manager.getItemCount();
-                scrollOutItems = manager.findFirstVisibleItemPosition();
+        pacienteAdapter = new PacienteAdapter(this, patientList);
+        pacienteRecyclerView.setHasFixedSize(true);
+        pacienteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        pacienteRecyclerView.setAdapter(pacienteAdapter);
 
-                if (isScrolling && (currentItems + scrollOutItems == totalItems)) {
-                    isScrolling = false;
-                    /**
-                     * AQUI SE DEBE COLOCAR EL LLAMADO DEL API, CONSULTAR VALOR CON EDINSON
-                     * */
-                }
+        obtenerPacientes(TEXTO_VACIO, TEXTO_VACIO, TEXTO_VACIO, pageNumber);
+
+        nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                pageNumber++;
+                progressBar.setVisibility(VISIBLE);
+                obtenerPacientes(tipoDocumento, nroDocumento, nombres, pageNumber);
             }
         });
 
@@ -114,21 +107,22 @@ public class ListadoPacienteActivity extends AppCompatActivity {
         spnTipoDocumento.setAdapter(adapterTipoDocumento);
     }
 
-    private void obtenerPacientes(String tipoDocumento, String numeroDocumento, String nombres) {
-        progressBar.setVisibility(VISIBLE);
+    private void obtenerPacientes(String tipoDocumento, String numeroDocumento, String nombres, Integer numeroPagina) {
         String token = (String) getSharedPreference(String.class, ListadoPacienteActivity.this, TOKEN);
         PacienteApi.getPatients(patientsResponse -> {
             if (S_CERO.equals(patientsResponse.getCodigoRespuesta())) {
-                pacienteAdapter = new PacienteAdapter(this, patientsResponse.getPacientes());
-                pacienteRecyclerView.setHasFixedSize(true);
-                pacienteRecyclerView.setLayoutManager(new LinearLayoutManager(ListadoPacienteActivity.this));
+                progressBar.setVisibility(GONE);
+                patientList.addAll(patientsResponse.getPacientes());
+
+                pacienteAdapter = new PacienteAdapter(this, patientList);
                 pacienteRecyclerView.setAdapter(pacienteAdapter);
 
-                pacienteAdapter.notifyDataSetChanged();
-                progressBar.setVisibility(GONE);
+                //pacienteAdapter.notifyDataSetChanged();
+
             } else {
+                progressBar.setVisibility(INVISIBLE);
                 makeText(ListadoPacienteActivity.this, "Error al cargar pacientes", LENGTH_LONG).show();
             }
-        }, tipoDocumento, numeroDocumento, nombres, token);
+        }, tipoDocumento, numeroDocumento, nombres, String.valueOf(numeroPagina), token);
     }
 }

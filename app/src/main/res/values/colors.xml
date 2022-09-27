@@ -10,4 +10,5 @@
     <color name="black_app">#1D1D1B</color>
     <color name="gray_placeholder_text_field">#B3B3B3</color>
     <color name="background_light_blue">#9FC9F3</color>
+    <color name="light_blue_app">#348FE2</color>
 </resources>

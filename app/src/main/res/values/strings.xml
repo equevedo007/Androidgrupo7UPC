@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Android grupo 7 UPC</string>
 
-    <string name="lbl_title_logo">Bienvenidos al sistema de óptica</string>
+    <string name="lbl_title_1">Op</string>
+    <string name="lbl_title_2">eviso</string>
+    <string name="lbl_subtitle_logo">Bienvenidos al sistema de óptica</string>
     <string name="lbl_title_register_patient">Registro de Paciente</string>
     <string name="lbl_title_register_antecedent">Registro de Antecedentes</string>
     <string name="lbl_subtitle_register_antecedent_1">Antecedentes de enfermedades existentes</string>

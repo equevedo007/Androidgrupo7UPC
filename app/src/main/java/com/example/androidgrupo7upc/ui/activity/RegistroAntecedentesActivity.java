@@ -113,6 +113,7 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
                 .stream()
                 .filter(list::contains)
                 .collect(Collectors.toList()));
+
         familyIllnessList.addAll(DataMapper.enfermedadFamiliar
                 .keySet()
                 .stream()
@@ -139,11 +140,15 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
                 .ifPresent(illnessType -> eyesIllnessList.add(illnessType));
     }
 
-    private List<IllnessType> getReduceList(List<IllnessType> list) {
+    private List<IllnessType> getReduceIllnessList(List<IllnessType> list) {
         return new HashSet<>(list)
                 .stream()
                 .filter(x -> Objects.nonNull(x) && (x.isOD() || x.isOI()))
                 .collect(Collectors.toList());
+    }
+
+    private List<String> getReduceStringList(List<String> list) {
+        return new ArrayList<>(new HashSet<>(list));
     }
 
     private void obtenerHistoriaClinica(String documentType, String documentNumber) {
@@ -220,12 +225,12 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
     private void registrarAntecedentes(String token, String clinicHistoryId) {
         AntecedentType antecedentRequest = new AntecedentType();
         antecedentRequest.setIdHistoria(clinicHistoryId);
-        antecedentRequest.setEnfermedadesExistentes(existingIllnessList);
+        antecedentRequest.setEnfermedadesExistentes(getReduceStringList(existingIllnessList));
         antecedentRequest.setOtrasExistentes(new ArrayList<>());
-        antecedentRequest.setEnfermedadesFamiliares(familyIllnessList);
+        antecedentRequest.setEnfermedadesFamiliares(getReduceStringList(familyIllnessList));
         antecedentRequest.setOtrasFamiliares(new ArrayList<>());
-        antecedentRequest.setErroresRefraccion(getReduceList(refractiveErrorList));
-        antecedentRequest.setEnfermedadesOculares(getReduceList(eyesIllnessList));
+        antecedentRequest.setErroresRefraccion(getReduceIllnessList(refractiveErrorList));
+        antecedentRequest.setEnfermedadesOculares(getReduceIllnessList(eyesIllnessList));
         try {
             AntecedentesApi.addAntecedent(antecedentResponse -> {
                 if (S_CERO.equals(antecedentResponse.getCodigoRespuesta())) {
