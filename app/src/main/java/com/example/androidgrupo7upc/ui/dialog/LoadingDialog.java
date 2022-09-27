@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 
 import com.example.androidgrupo7upc.R;
 
-public class CustomDialog extends Dialog {
+public class LoadingDialog extends Dialog {
 
-    public CustomDialog(@NonNull Context context) {
+    public LoadingDialog(@NonNull Context context) {
         super(context);
 
         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();

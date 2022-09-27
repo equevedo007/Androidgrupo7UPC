@@ -73,8 +73,8 @@ public class ListadoPacienteActivity extends AppCompatActivity {
             nombres = txtNombres.getText().toString();
 
             if (!tipoDocumento.isEmpty() || !nroDocumento.isEmpty() || !nombres.isEmpty()) {
+                patientList.clear();
                 obtenerPacientes(tipoDocumento, nroDocumento, nombres, pageNumber);
-                //pacienteAdapter.notifyDataSetChanged();
             }
         });
 
@@ -116,9 +116,6 @@ public class ListadoPacienteActivity extends AppCompatActivity {
 
                 pacienteAdapter = new PacienteAdapter(this, patientList);
                 pacienteRecyclerView.setAdapter(pacienteAdapter);
-
-                //pacienteAdapter.notifyDataSetChanged();
-
             } else {
                 progressBar.setVisibility(INVISIBLE);
                 makeText(ListadoPacienteActivity.this, "Error al cargar pacientes", LENGTH_LONG).show();

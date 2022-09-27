@@ -33,7 +33,7 @@ import com.example.androidgrupo7upc.ui.adapter.checkbox.CheckBoxAdapter;
 import com.example.androidgrupo7upc.ui.adapter.checkbox.CheckBoxListener;
 import com.example.androidgrupo7upc.ui.adapter.doublecheckbox.DoubleCheckBoxAdapter;
 import com.example.androidgrupo7upc.ui.adapter.doublecheckbox.DoubleCheckBoxListener;
-import com.example.androidgrupo7upc.ui.dialog.CustomDialog;
+import com.example.androidgrupo7upc.ui.dialog.LoadingDialog;
 import com.example.androidgrupo7upc.util.Util;
 import com.example.androidgrupo7upc.util.data.DataMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +49,7 @@ import java.util.stream.Collectors;
 
 public class RegistroAntecedentesActivity extends AppCompatActivity implements CheckBoxListener, DoubleCheckBoxListener {
 
-    private CustomDialog customDialog;
+    private LoadingDialog loadingDialog;
 
     private PatientType patient;
 
@@ -85,7 +85,7 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
         RecyclerView lstEyesIllness = findViewById(R.id.lstEyesIllness);
         obtenerEnfermedadesODOI(lstEyesIllness, Util.getIllnessList(DataMapper.enfermedadOcular));
 
-        customDialog = new CustomDialog(this);
+        loadingDialog = new LoadingDialog(this);
         MaterialButton btnSearch = findViewById(R.id.btnRegistrar);
         btnSearch.setOnClickListener(view -> {
             obtenerHistoriaClinica(patient.getTipoDocumento(), patient.getNumeroDocumento());
@@ -152,7 +152,7 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
     }
 
     private void obtenerHistoriaClinica(String documentType, String documentNumber) {
-        customDialog.show();
+        loadingDialog.show();
         String token = (String) getSharedPreference(String.class, RegistroAntecedentesActivity.this, TOKEN);
 
         PatientType attentionRequest = new PatientType();
@@ -164,12 +164,12 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
                     AttentionType attentionType = attentionResponse.get(attentionResponse.size() - 1);
                     obtenerAtencionPendiente(token, attentionType.getIdHistoria());
                 } else {
-                    customDialog.cancel();
+                    loadingDialog.cancel();
                     makeText(RegistroAntecedentesActivity.this, "Error al obtener número de historia", LENGTH_LONG).show();
                 }
             }, token, attentionRequest);
         } catch (JsonProcessingException | JSONException e) {
-            customDialog.cancel();
+            loadingDialog.cancel();
             makeText(RegistroAntecedentesActivity.this, valueOf(e), LENGTH_LONG).show();
         }
     }
@@ -184,7 +184,7 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
                     registrarAtencion(token, clinicHistoryId);
                 }
             } else {
-                customDialog.cancel();
+                loadingDialog.cancel();
                 makeText(RegistroAntecedentesActivity.this, "Error al obtener atención pendiente", LENGTH_LONG).show();
             }
         }, token, clinicHistoryId);
@@ -195,7 +195,7 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
             if (S_CERO.equals(attentionResponse.getCodigoRespuesta())) {
                 registrarAtencion(token, clinicHistoryId);
             } else {
-                customDialog.cancel();
+                loadingDialog.cancel();
                 makeText(RegistroAntecedentesActivity.this, "Error al eliminar atención pendiente", LENGTH_LONG).show();
             }
         }, token, attentionId);
@@ -212,12 +212,12 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
                 if (S_CERO.equals(attentionResponse.getCodigoRespuesta())) {
                     registrarAntecedentes(token, clinicHistoryId);
                 } else {
-                    customDialog.cancel();
+                    loadingDialog.cancel();
                     makeText(RegistroAntecedentesActivity.this, "Error al registrar atención", LENGTH_LONG).show();
                 }
             }, token, attentionRequest);
         } catch (JsonProcessingException | JSONException e) {
-            customDialog.cancel();
+            loadingDialog.cancel();
             makeText(RegistroAntecedentesActivity.this, valueOf(e), LENGTH_LONG).show();
         }
     }
@@ -234,15 +234,15 @@ public class RegistroAntecedentesActivity extends AppCompatActivity implements C
         try {
             AntecedentesApi.addAntecedent(antecedentResponse -> {
                 if (S_CERO.equals(antecedentResponse.getCodigoRespuesta())) {
-                    customDialog.cancel();
+                    loadingDialog.cancel();
                     startActivity(new Intent(this, ListadoPacienteActivity.class));
                 } else {
-                    customDialog.cancel();
+                    loadingDialog.cancel();
                     makeText(RegistroAntecedentesActivity.this, "Error al registrar antecedentes", LENGTH_LONG).show();
                 }
             }, token, antecedentRequest);
         } catch (JsonProcessingException | JSONException e) {
-            customDialog.cancel();
+            loadingDialog.cancel();
             makeText(RegistroAntecedentesActivity.this, valueOf(e), LENGTH_LONG).show();
         }
     }

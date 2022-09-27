@@ -5,6 +5,9 @@ import static com.example.androidgrupo7upc.util.Constants.CLASE_BOOLEAN;
 import static com.example.androidgrupo7upc.util.Constants.CLASE_INT;
 import static com.example.androidgrupo7upc.util.Constants.CLASE_LONG;
 import static com.example.androidgrupo7upc.util.Constants.CLASE_STRING;
+import static com.example.androidgrupo7upc.util.Constants.S_CERO;
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -78,6 +81,14 @@ public class Util {
             return dateInput.format(formatter);
         }
         return null;
+    }
+
+    public static String buildDate(int day, int month, int year) {
+        month++;
+        return format("%s/%s/%s",
+                day < 10 ? S_CERO + day : valueOf(day),
+                month < 10 ? S_CERO + month : valueOf(month),
+                year);
     }
 
 }
