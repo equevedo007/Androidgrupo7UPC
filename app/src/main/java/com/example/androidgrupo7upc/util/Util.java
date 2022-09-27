@@ -9,11 +9,14 @@ import static com.example.androidgrupo7upc.util.Constants.CLASE_STRING;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.androidgrupo7upc.model.IllnessType;
 import com.example.androidgrupo7upc.model.MasterType;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,6 +30,12 @@ public class Util {
     public static List<MasterType> getMasterList(Map<String, String> map) {
         return map.entrySet().stream()
                 .map(entry -> new MasterType(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+    }
+
+    public static List<IllnessType> getIllnessList(Map<String, String> map) {
+        return map.entrySet().stream()
+                .map(entry -> new IllnessType(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
 
@@ -61,6 +70,14 @@ public class Util {
         }
 
         editor.apply();
+    }
+
+    public static String getStringLocalDateTime(LocalDateTime dateInput, String format) {
+        if (dateInput != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+            return dateInput.format(formatter);
+        }
+        return null;
     }
 
 }

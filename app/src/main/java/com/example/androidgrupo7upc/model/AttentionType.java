@@ -4,10 +4,17 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
-
 @JsonInclude(Include.NON_NULL)
-public class PatientType implements Serializable {
+public class AttentionType {
+
+    @JsonProperty("idHistoria")
+    private String idHistoria;
+
+    @JsonProperty("idAtencion")
+    private String idAtencion;
+
+    @JsonProperty("codHistoria")
+    private String codHistoria;
 
     @JsonProperty("idPaciente")
     private String idPaciente;
@@ -21,17 +28,38 @@ public class PatientType implements Serializable {
     @JsonProperty("apeMaterno")
     private String apeMaterno;
 
-    @JsonProperty("tipoDocumento")
-    private String tipoDocumento;
-
     @JsonProperty("numeroDocumento")
     private String numeroDocumento;
 
-    @JsonProperty("idEstado")
-    private String idEstado;
+    @JsonProperty("edad")
+    private String edad;
 
-    @JsonProperty("descEstado")
-    private String descEstado;
+    @JsonProperty("direccion")
+    private String direccion;
+
+    public String getIdHistoria() {
+        return idHistoria;
+    }
+
+    public void setIdHistoria(String idHistoria) {
+        this.idHistoria = idHistoria;
+    }
+
+    public String getCodHistoria() {
+        return codHistoria;
+    }
+
+    public void setCodHistoria(String codHistoria) {
+        this.codHistoria = codHistoria;
+    }
+
+    public String getIdAtencion() {
+        return idAtencion;
+    }
+
+    public void setIdAtencion(String idAtencion) {
+        this.idAtencion = idAtencion;
+    }
 
     public String getIdPaciente() {
         return idPaciente;
@@ -65,14 +93,6 @@ public class PatientType implements Serializable {
         this.apeMaterno = apeMaterno;
     }
 
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
     public String getNumeroDocumento() {
         return numeroDocumento;
     }
@@ -81,19 +101,19 @@ public class PatientType implements Serializable {
         this.numeroDocumento = numeroDocumento;
     }
 
-    public String getIdEstado() {
-        return idEstado;
+    public String getEdad() {
+        return edad;
     }
 
-    public void setIdEstado(String idEstado) {
-        this.idEstado = idEstado;
+    public void setEdad(String edad) {
+        this.edad = edad;
     }
 
-    public String getDescEstado() {
-        return descEstado;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDescEstado(String descEstado) {
-        this.descEstado = descEstado;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

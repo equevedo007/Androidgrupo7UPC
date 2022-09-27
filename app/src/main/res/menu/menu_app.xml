@@ -6,11 +6,6 @@
         android:id="@+id/menu_Paciente"
         android:title="@string/opt_paciente"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_hc"
-        android:title="@string/opt_hc"
-        app:showAsAction="never" />
     <item
         android:id="@+id/menu_salir"
         android:title="@string/opt_salir"

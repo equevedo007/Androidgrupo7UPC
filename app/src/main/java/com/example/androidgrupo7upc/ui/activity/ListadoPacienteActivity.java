@@ -71,8 +71,8 @@ public class ListadoPacienteActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(view -> {
             String nroDocumento = txtNroDocumento.getText().toString();
             String nombres = txtNombres.getText().toString();
-            obtenerPacientes(tipoDocumento, nroDocumento, nombres);
 
+            obtenerPacientes(tipoDocumento, nroDocumento, nombres);
             pacienteAdapter.notifyDataSetChanged();
         });
 

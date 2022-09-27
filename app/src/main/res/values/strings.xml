@@ -3,8 +3,13 @@
 
     <string name="lbl_title_logo">Bienvenidos al sistema de óptica</string>
     <string name="lbl_title_register_patient">Registro de Paciente</string>
-    <string name="lbl_title_register_antecedent">Registro de Antcedentes</string>
-    <string name="lbl_subtitle_register_antecedent_1">Antcedentes de enfermedades existentes</string>
+    <string name="lbl_title_register_antecedent">Registro de Antecedentes</string>
+    <string name="lbl_subtitle_register_antecedent_1">Antecedentes de enfermedades existentes</string>
+    <string name="lbl_subtitle_register_antecedent_2">Otros Antecedentes</string>
+    <string name="lbl_subtitle_register_antecedent_3">Errores de refracción</string>
+    <string name="lbl_subtitle_register_antecedent_4">Enfermedades oculares</string>
+
+    <string name="lbl_demo">Loren Ipsum</string>
 
     <string name="user_hint">Usuario</string>
     <string name="user_placeholder">Nombre de usuario</string>
@@ -81,6 +86,11 @@
     <string name="lbl_names">Nombres</string>
     <string name="lbl_last_names">Apellidos</string>
     <string name="lbl_document_number">Nro. Documento</string>
+
+    <string name="lbl_OD">OD</string>
+    <string name="lbl_OI">OI</string>
+
+    <string name="lbl_progress">Espere mientras registramos los datos</string>
 
     <string name="opt_paciente">Paciente</string>
     <string name="opt_hc">Historia Clínica</string>

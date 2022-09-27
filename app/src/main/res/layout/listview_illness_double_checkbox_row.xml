@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/lytObject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtIllnessTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:gravity="center|start"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/lbl_demo"
+            android:textColor="@color/black_app"
+            android:textSize="14sp" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/chkOD"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:background="@color/white"
+            android:text="@string/lbl_OD" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/chkOI"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:background="@color/white"
+            android:text="@string/lbl_OI" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

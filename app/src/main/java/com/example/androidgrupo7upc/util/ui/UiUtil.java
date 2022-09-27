@@ -18,5 +18,4 @@ public class UiUtil {
         }
         return views;
     }
-
 }

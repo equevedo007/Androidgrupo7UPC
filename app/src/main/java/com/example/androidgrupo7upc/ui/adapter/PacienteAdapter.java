@@ -1,9 +1,7 @@
 package com.example.androidgrupo7upc.ui.adapter;
 
-import static android.widget.Toast.LENGTH_SHORT;
-import static android.widget.Toast.makeText;
-
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidgrupo7upc.R;
 import com.example.androidgrupo7upc.model.PatientType;
+import com.example.androidgrupo7upc.ui.activity.RegistroAntecedentesActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -53,7 +52,9 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
         txtNroDocItem.setText(patientBean.getNumeroDocumento());
 
         btnAntecedent.setOnClickListener(view -> {
-            makeText(mContext, patientBean.getNombres(), LENGTH_SHORT).show();
+            Intent registroAntecedentesIntent = new Intent(mContext, RegistroAntecedentesActivity.class);
+            registroAntecedentesIntent.putExtra("paciente", patientBean);
+            mContext.startActivity(registroAntecedentesIntent);
         });
     }
 

@@ -10,6 +10,7 @@ public class RESTManager {
     private static RESTManager instance = null;
     private static RequestQueue requestQueue;
     private static Context context;
+
     private RESTManager(Context context) {
         RESTManager.context = context;
         requestQueue = Volley.newRequestQueue(context.getApplicationContext());

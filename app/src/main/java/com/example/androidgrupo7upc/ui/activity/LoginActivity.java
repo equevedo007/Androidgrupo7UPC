@@ -6,8 +6,8 @@ import static android.widget.Toast.makeText;
 import static com.example.androidgrupo7upc.util.Constants.NOMBRE;
 import static com.example.androidgrupo7upc.util.Constants.S_CERO;
 import static com.example.androidgrupo7upc.util.Constants.TOKEN;
-import static com.example.androidgrupo7upc.util.ui.UiUtil.findViewsWithType;
 import static com.example.androidgrupo7upc.util.Util.setSharedPreference;
+import static com.example.androidgrupo7upc.util.ui.UiUtil.findViewsWithType;
 import static java.lang.String.valueOf;
 import static java.util.Objects.requireNonNull;
 
@@ -40,10 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        RESTManager.getInstance(this);
+
         txtUsuario = findViewById(R.id.txtUser);
         txtClave = findViewById(R.id.txtPass);
-
-        RESTManager.getInstance(this);
     }
 
     public void toHome(View view) {

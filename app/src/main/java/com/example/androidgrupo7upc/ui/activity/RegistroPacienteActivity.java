@@ -5,8 +5,8 @@ import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 import static com.example.androidgrupo7upc.util.Constants.S_CERO;
 import static com.example.androidgrupo7upc.util.Constants.TOKEN;
-import static com.example.androidgrupo7upc.util.ui.UiUtil.findViewsWithType;
 import static com.example.androidgrupo7upc.util.Util.getSharedPreference;
+import static com.example.androidgrupo7upc.util.ui.UiUtil.findViewsWithType;
 import static java.lang.String.valueOf;
 import static java.util.Objects.requireNonNull;
 
@@ -30,8 +30,8 @@ import com.example.androidgrupo7upc.model.ProvinceType;
 import com.example.androidgrupo7upc.network.RESTManager;
 import com.example.androidgrupo7upc.network.impl.PacienteApi;
 import com.example.androidgrupo7upc.network.impl.UbigeoApi;
-import com.example.androidgrupo7upc.util.data.DataMapper;
 import com.example.androidgrupo7upc.util.Util;
+import com.example.androidgrupo7upc.util.data.DataMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.android.material.textfield.TextInputLayout;
 

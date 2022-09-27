@@ -14,7 +14,6 @@ import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.androidgrupo7upc.model.LoginResponse;
 import com.example.androidgrupo7upc.model.PatientRequest;
 import com.example.androidgrupo7upc.model.PatientResponse;
 import com.example.androidgrupo7upc.model.PatientType;
@@ -110,7 +109,7 @@ public class PacienteApi {
             ResponseType patientResponse = null;
 
             try {
-                patientResponse = new LoginResponse();
+                patientResponse = new ResponseType();
                 patientResponse.setCodigoRespuesta(valueOf(getValueJSON(response, "codigoRespuesta")));
                 patientResponse.setMensajeRespuesta(valueOf(getValueJSON(response, "mensajeRespuesta")));
             } catch (JSONException e) {
