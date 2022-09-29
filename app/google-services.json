@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "928725342551",
+    "project_id": "opevisoapp",
+    "storage_bucket": "opevisoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928725342551:android:bd2940e8e3347c61b9c612",
+        "android_client_info": {
+          "package_name": "com.example.androidgrupo7upc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928725342551-45m54r1ml7jep5i1cphju2b9153ojfd7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_aI-8MvDJr23upRvup_iQVu2Hbh-Z4K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928725342551-45m54r1ml7jep5i1cphju2b9153ojfd7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

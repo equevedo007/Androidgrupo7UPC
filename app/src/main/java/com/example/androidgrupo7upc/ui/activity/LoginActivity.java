@@ -13,6 +13,7 @@ import static java.util.Objects.requireNonNull;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import com.example.androidgrupo7upc.network.RESTManager;
 import com.example.androidgrupo7upc.network.impl.LoginApi;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        initFirebase();
 
         RESTManager.getInstance(this);
 
@@ -87,6 +90,18 @@ public class LoginActivity extends AppCompatActivity {
         } catch (JsonProcessingException | JSONException e) {
             makeText(LoginActivity.this, valueOf(e), LENGTH_LONG).show();
         }
+    }
+
+    private void initFirebase() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("====>", "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+                    String token = task.getResult();
+                    Log.d("====>", "TOKEN_FIREBASE : " + token);
+                });
     }
 }
 
