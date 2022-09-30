@@ -29,11 +29,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.apache.commons.lang3.StringUtils;
+
 import org.json.JSONException;
 
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
+    // Trabajo Final Android UPC 29/09/2022
 
     EditText txtUsuario, txtClave;
 
