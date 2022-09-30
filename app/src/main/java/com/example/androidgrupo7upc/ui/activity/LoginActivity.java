@@ -35,7 +35,7 @@ import org.json.JSONException;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
-    // Trabajo Final Android UPC 29/09/2022
+    // Trabajo-Final Android UPC 29/09/2022
 
     EditText txtUsuario, txtClave;
 
